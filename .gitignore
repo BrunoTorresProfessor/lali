@@ -1,0 +1,33 @@
+# Pastas de trabalho/origem que nao fazem parte da execucao do jogo.
+/cartoon/
+/fotos/
+/.agents/
+
+# Arquivo solto gerado fora da estrutura do projeto.
+/-
+
+# Previews, backups e referencias de producao visual.
+/game/assets/world/reference/
+/game/assets/player/reference/
+/game/assets/world/ASSET_PIPELINE.md
+/game/assets/world/ROUTE_VALIDATION.md
+/game/assets/player/SPRITE_PIPELINE.md
+
+# Assets antigos ou intermediarios nao carregados pelo BootScene.
+/game/assets/world/maps/jardim-botanico.json
+/game/assets/cartoon/alameda-palmeiras.png
+/game/assets/cartoon/alameda-palmeiras-continuacao.png
+/game/assets/cartoon/casarao-palmeiras-cartoon.png
+/game/assets/cartoon/centro-visitantes-cartoon.png
+/game/assets/cartoon/centro-visitantes-jornada.png
+/game/assets/cartoon/museu-jornada.png
+/game/assets/cartoon/route-continuous/route-strip-preview.png
+/game/assets/player/girl1.png
+/game/assets/player/girl1-spritesheet.png
+/game/assets/player/girl2.png
+/game/assets/player/girl2-spritesheet.png
+
+# Arquivos temporarios comuns.
+.DS_Store
+Thumbs.db
+*.log

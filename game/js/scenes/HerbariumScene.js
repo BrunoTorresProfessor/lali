@@ -1,0 +1,8 @@
+import { ASSET_KEYS, SCENE_KEYS } from '../config.js';
+import EnvironmentScene from './EnvironmentScene.js';
+
+export default class HerbariumScene extends EnvironmentScene {
+  constructor() {
+    super(SCENE_KEYS.herbarium, ASSET_KEYS.herbarium, 'Herbario RB');
+  }
+}

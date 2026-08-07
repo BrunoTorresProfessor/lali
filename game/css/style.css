@@ -1,0 +1,51 @@
+:root {
+  color-scheme: dark;
+  --page-bg: #101416;
+  --frame-bg: #182024;
+  --frame-border: #344147;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  align-items: center;
+  background:
+    radial-gradient(circle at 20% 15%, rgba(87, 136, 103, 0.2), transparent 28rem),
+    linear-gradient(135deg, #101416 0%, #172323 55%, #11191d 100%);
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  overflow: hidden;
+  padding: 16px;
+}
+
+.game-shell {
+  align-items: center;
+  aspect-ratio: 16 / 9;
+  background: var(--frame-bg);
+  border: 1px solid var(--frame-border);
+  display: flex;
+  justify-content: center;
+  max-height: calc(100vh - 32px);
+  max-width: calc(100vw - 32px);
+  width: min(1280px, calc(100vw - 32px));
+}
+
+#game-container {
+  height: 100%;
+  width: 100%;
+}
+
+#game-container canvas {
+  display: block;
+  height: 100%;
+  width: 100%;
+}

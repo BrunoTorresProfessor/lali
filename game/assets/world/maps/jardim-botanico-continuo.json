@@ -1,0 +1,323 @@
+{
+  "id": "jardim-botanico-continuo",
+  "version": 2,
+  "height": 720,
+  "playerLaneY": 590,
+  "chunkWidth": 1280,
+  "safetyMargin": 420,
+  "source": "route-continuous generated from the approved route modules with 256px overlaps",
+  "modules": [
+    {
+      "id": "route_chunk_001",
+      "type": "walk",
+      "width": 1280,
+      "layers": [
+        {
+          "depth": 0,
+          "assetKey": "route-chunk-001",
+          "fit": "coverHeight"
+        }
+      ]
+    },
+    {
+      "id": "route_chunk_002",
+      "type": "walk",
+      "width": 1280,
+      "layers": [
+        {
+          "depth": 0,
+          "assetKey": "route-chunk-002",
+          "fit": "coverHeight"
+        }
+      ]
+    },
+    {
+      "id": "route_chunk_003",
+      "type": "walk",
+      "width": 1280,
+      "layers": [
+        {
+          "depth": 0,
+          "assetKey": "route-chunk-003",
+          "fit": "coverHeight"
+        }
+      ]
+    },
+    {
+      "id": "route_chunk_004",
+      "type": "stop",
+      "width": 1280,
+      "layers": [
+        {
+          "depth": 0,
+          "assetKey": "route-chunk-004",
+          "fit": "coverHeight"
+        }
+      ],
+      "sourceStopId": "visitor_center",
+      "scene": "VisitorCenterScene",
+      "title": "Centro de Visitantes",
+      "entryRatio": 0.3288,
+      "resumeOffset": 360,
+      "learning": {
+        "objective": "Aprender como funciona o Jardim Botanico.",
+        "npc": "guide_visitor_center",
+        "dialogue": "dialogues/visitor_center.json",
+        "minigame": "find_map",
+        "reward": "Mapa do Jardim"
+      }
+    },
+    {
+      "id": "route_chunk_005",
+      "type": "stop",
+      "width": 1280,
+      "layers": [
+        {
+          "depth": 0,
+          "assetKey": "route-chunk-005",
+          "fit": "coverHeight"
+        }
+      ],
+      "sourceStopId": "herbarium_rb",
+      "scene": "HerbariumScene",
+      "title": "Herbario RB",
+      "entryRatio": 0.671875,
+      "resumeOffset": 360,
+      "learning": {
+        "objective": "Conhecer a importancia das colecoes botanicas.",
+        "npc": "guide_herbarium",
+        "dialogue": "dialogues/herbarium.json",
+        "minigame": "match_leaf",
+        "reward": "Registro de Exploradora"
+      }
+    },
+    {
+      "id": "route_chunk_006",
+      "type": "walk",
+      "width": 1280,
+      "layers": [
+        {
+          "depth": 0,
+          "assetKey": "route-chunk-006",
+          "fit": "coverHeight"
+        }
+      ]
+    },
+    {
+      "id": "route_chunk_007",
+      "type": "stop",
+      "width": 1280,
+      "layers": [
+        {
+          "depth": 0,
+          "assetKey": "route-chunk-007",
+          "fit": "coverHeight"
+        }
+      ],
+      "sourceStopId": "frei_leandro_lake",
+      "scene": "LakeScene",
+      "title": "Lago Frei Leandro",
+      "entryRatio": 0.5287,
+      "resumeOffset": 360,
+      "learning": {
+        "objective": "Observar plantas aquaticas e cuidado com a agua.",
+        "npc": "guide_lake",
+        "dialogue": "dialogues/lake.json",
+        "minigame": "clean_water",
+        "reward": "Gota de Cuidado"
+      }
+    },
+    {
+      "id": "route_chunk_008",
+      "type": "walk",
+      "width": 1280,
+      "layers": [
+        {
+          "depth": 0,
+          "assetKey": "route-chunk-008",
+          "fit": "coverHeight"
+        }
+      ]
+    },
+    {
+      "id": "route_chunk_009",
+      "type": "stop",
+      "width": 1280,
+      "layers": [
+        {
+          "depth": 0,
+          "assetKey": "route-chunk-009",
+          "fit": "coverHeight"
+        }
+      ],
+      "sourceStopId": "orchid_house",
+      "scene": "OrchidHouseScene",
+      "title": "Orquidário",
+      "entryRatio": 0.328125,
+      "resumeOffset": 360,
+      "learning": {
+        "objective": "Descobrir como as orquideas vivem e se reproduzem.",
+        "npc": "guide_orchid_house",
+        "dialogue": "dialogues/orchid_house.json",
+        "minigame": "pollination_path",
+        "reward": "Flor de Observacao"
+      }
+    },
+    {
+      "id": "route_chunk_010",
+      "type": "stop",
+      "width": 1280,
+      "layers": [
+        {
+          "depth": 0,
+          "assetKey": "route-chunk-010",
+          "fit": "coverHeight"
+        }
+      ],
+      "sourceStopId": "bromeliad_house",
+      "scene": "BromeliadHouseScene",
+      "title": "Bromeliário",
+      "entryRatio": 0.671875,
+      "resumeOffset": 360,
+      "learning": {
+        "objective": "Entender como bromelias armazenam agua e abrigam vida.",
+        "npc": "guide_bromeliad_house",
+        "dialogue": "dialogues/bromeliad_house.json",
+        "minigame": "find_microhabitats",
+        "reward": "Copo de Bromelia"
+      }
+    },
+    {
+      "id": "route_chunk_011",
+      "type": "walk",
+      "width": 1280,
+      "layers": [
+        {
+          "depth": 0,
+          "assetKey": "route-chunk-011",
+          "fit": "coverHeight"
+        }
+      ]
+    },
+    {
+      "id": "route_chunk_012",
+      "type": "stop",
+      "width": 1280,
+      "layers": [
+        {
+          "depth": 0,
+          "assetKey": "route-chunk-012",
+          "fit": "coverHeight"
+        }
+      ],
+      "sourceStopId": "sensory_garden",
+      "scene": "SensoryGardenScene",
+      "title": "Jardim Sensorial",
+      "entryRatio": 0.3287,
+      "resumeOffset": 360,
+      "learning": {
+        "objective": "Explorar texturas, cheiros e cores com observacao sensorial.",
+        "npc": "guide_sensory_garden",
+        "dialogue": "dialogues/sensory_garden.json",
+        "minigame": "sense_match",
+        "reward": "Cartao dos Sentidos"
+      }
+    },
+    {
+      "id": "route_chunk_013",
+      "type": "stop",
+      "width": 1280,
+      "layers": [
+        {
+          "depth": 0,
+          "assetKey": "route-chunk-013",
+          "fit": "coverHeight"
+        }
+      ],
+      "sourceStopId": "museum",
+      "scene": "MuseumScene",
+      "title": "Museu do Meio Ambiente",
+      "entryRatio": 0.671875,
+      "resumeOffset": 360,
+      "learning": {
+        "objective": "Aprender sobre educacao ambiental e conservacao.",
+        "npc": "guide_museum",
+        "dialogue": "dialogues/museum.json",
+        "minigame": "sort_waste",
+        "reward": "Selo Guardias da Natureza"
+      }
+    },
+    {
+      "id": "route_chunk_014",
+      "type": "walk",
+      "width": 1280,
+      "layers": [
+        {
+          "depth": 0,
+          "assetKey": "route-chunk-014",
+          "fit": "coverHeight"
+        }
+      ]
+    },
+    {
+      "id": "route_chunk_015",
+      "type": "stop",
+      "width": 1280,
+      "layers": [
+        {
+          "depth": 0,
+          "assetKey": "route-chunk-015",
+          "fit": "coverHeight"
+        }
+      ],
+      "sourceStopId": "greenhouses",
+      "scene": "GreenhousesScene",
+      "title": "Estufas",
+      "entryRatio": 0.5287,
+      "resumeOffset": 360,
+      "learning": {
+        "objective": "Explorar texturas, cheiros e cores das plantas nas estufas.",
+        "npc": "guide_greenhouses",
+        "dialogue": "dialogues/greenhouses.json",
+        "minigame": "texture_observation",
+        "reward": "Caderno de Observacao"
+      }
+    },
+    {
+      "id": "route_chunk_016",
+      "type": "walk",
+      "width": 1280,
+      "layers": [
+        {
+          "depth": 0,
+          "assetKey": "route-chunk-016",
+          "fit": "coverHeight"
+        }
+      ]
+    },
+    {
+      "id": "route_chunk_017",
+      "type": "stop",
+      "width": 1280,
+      "layers": [
+        {
+          "depth": 0,
+          "assetKey": "route-chunk-017",
+          "fit": "coverHeight"
+        }
+      ],
+      "sourceStopId": "national_school",
+      "scene": "CreditsScene",
+      "title": "Escola Nacional de Botanica Tropical",
+      "entryRatio": 0.328125,
+      "resumeOffset": 360,
+      "learning": {
+        "objective": "Encerrar a jornada celebrando a conservacao da biodiversidade tropical.",
+        "npc": "final_guide",
+        "dialogue": "dialogues/final.json",
+        "minigame": "credits",
+        "reward": "Fim da Jornada"
+      }
+    }
+  ]
+}

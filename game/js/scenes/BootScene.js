@@ -7,7 +7,7 @@ import {
   ROUTE_CHUNKS,
   SCENE_KEYS,
   withAssetVersion,
-} from '../config.js?v=2026-08-07-route-cache-18';
+} from '../config.js?v=2026-08-08-fish-cache-33';
 
 const Phaser = window.Phaser;
 
@@ -21,8 +21,10 @@ export default class BootScene extends Phaser.Scene {
     this.load.image(ASSET_KEYS.bromeliadHouse, ASSET_PATHS.bromeliadHouse);
     this.load.image(ASSET_KEYS.bromeliadSensoryTransition, ASSET_PATHS.bromeliadSensoryTransition);
     this.load.image(ASSET_KEYS.bromeliadTransition, ASSET_PATHS.bromeliadTransition);
+    this.load.image(ASSET_KEYS.chafarizDasMusas, ASSET_PATHS.chafarizDasMusas);
     this.load.image(ASSET_KEYS.creditsBackground, ASSET_PATHS.creditsBackground);
     this.load.image(ASSET_KEYS.enbtTransition, ASSET_PATHS.enbtTransition);
+    this.load.image(ASSET_KEYS.fishJump, ASSET_PATHS.fishJump);
     this.load.image(ASSET_KEYS.greenhouses, ASSET_PATHS.greenhouses);
     this.load.image(ASSET_KEYS.herbarium, ASSET_PATHS.herbarium);
     this.load.image(ASSET_KEYS.herbariumTransition, ASSET_PATHS.herbariumTransition);
@@ -35,14 +37,21 @@ export default class BootScene extends Phaser.Scene {
     this.load.image(ASSET_KEYS.orchidTransition, ASSET_PATHS.orchidTransition);
     this.load.image(ASSET_KEYS.sensoryGarden, ASSET_PATHS.sensoryGarden);
     this.load.image(ASSET_KEYS.sensoryMuseumTransition, ASSET_PATHS.sensoryMuseumTransition);
+    this.load.image(ASSET_KEYS.sumauma, ASSET_PATHS.sumauma);
     this.load.image(ASSET_KEYS.titleBackground, ASSET_PATHS.titleBackground);
     this.load.image(ASSET_KEYS.transitionGarden, ASSET_PATHS.transitionGarden);
+    this.load.image(ASSET_KEYS.toucanBlackBill, ASSET_PATHS.toucanBlackBill);
     this.load.image(ASSET_KEYS.visitorCenter, ASSET_PATHS.visitorCenter);
     this.load.image(ASSET_KEYS.visitorCenterSegment, ASSET_PATHS.visitorCenterSegment);
     this.load.image(ASSET_KEYS.visitorCenterTransition, ASSET_PATHS.visitorCenterTransition);
     this.loadContinuousRouteChunks();
     this.load.json(ASSET_KEYS.worldMap, ASSET_PATHS.worldMap);
+    this.load.audio(ASSET_KEYS.capuchinMonkeysChatter, ASSET_PATHS.capuchinMonkeysChatter);
+    this.load.audio(ASSET_KEYS.fishWaterSplash, ASSET_PATHS.fishWaterSplash);
+    this.load.audio(ASSET_KEYS.footstepSoftA, ASSET_PATHS.footstepSoftA);
+    this.load.audio(ASSET_KEYS.footstepSoftB, ASSET_PATHS.footstepSoftB);
     this.load.audio(ASSET_KEYS.menuMusic, ASSET_PATHS.menuMusic);
+    this.load.audio(ASSET_KEYS.stoneWaterSplash, ASSET_PATHS.stoneWaterSplash);
     this.loadPlayerSpritesheets();
   }
 

@@ -3,11 +3,12 @@ import { ENVIRONMENT_VISIT_DURATION, GAME_HEIGHT, GAME_WIDTH } from '../config.j
 const Phaser = window.Phaser;
 
 export default class EnvironmentScene extends Phaser.Scene {
-  constructor(sceneKey, backgroundKey, title) {
+  constructor(sceneKey, backgroundKey, title, options = {}) {
     super(sceneKey);
 
     this.backgroundKey = backgroundKey;
     this.title = title;
+    this.ambientAudio = options.ambientAudio;
   }
 
   create(data = {}) {
@@ -18,6 +19,7 @@ export default class EnvironmentScene extends Phaser.Scene {
 
     this.createBackground();
     this.createTitle();
+    this.playAmbientAudio();
     this.cameras.main.fadeIn(450, 10, 24, 18);
 
     this.time.delayedCall(ENVIRONMENT_VISIT_DURATION, () => this.returnToTrail());
@@ -59,12 +61,57 @@ export default class EnvironmentScene extends Phaser.Scene {
       .setDepth(10);
   }
 
+  playAmbientAudio() {
+    if (!this.ambientAudio?.key || !this.hasCachedAudio(this.ambientAudio.key)) {
+      return;
+    }
+
+    this.ambientSound = this.sound.add(this.ambientAudio.key, {
+      loop: this.ambientAudio.loop ?? true,
+      volume: this.ambientAudio.volume ?? 0.16,
+    });
+
+    this.events.once(Phaser.Scenes.Events.SHUTDOWN, () => this.stopAmbientAudio());
+
+    if (this.sound.locked) {
+      this.sound.once(Phaser.Sound.Events.UNLOCKED, () => this.startAmbientAudio());
+      return;
+    }
+
+    this.startAmbientAudio();
+  }
+
+  hasCachedAudio(key) {
+    const audioCache = this.cache.audio;
+
+    return Boolean(audioCache?.exists?.(key) || audioCache?.has?.(key));
+  }
+
+  startAmbientAudio() {
+    if (this.hasReturned || !this.ambientSound || this.ambientSound.isPlaying) {
+      return;
+    }
+
+    this.ambientSound.play({ delay: this.ambientAudio.delay ?? 0 });
+  }
+
+  stopAmbientAudio() {
+    if (!this.ambientSound) {
+      return;
+    }
+
+    this.ambientSound.stop();
+    this.ambientSound.destroy();
+    this.ambientSound = null;
+  }
+
   returnToTrail() {
     if (this.hasReturned || !this.returnScene) {
       return;
     }
 
     this.hasReturned = true;
+    this.stopAmbientAudio();
     this.cameras.main.fadeOut(450, 10, 24, 18);
     this.cameras.main.once(Phaser.Cameras.Scene2D.Events.FADE_OUT_COMPLETE, () => {
       this.scene.start(this.returnScene, { journeyState: this.journeyState });

@@ -1,11 +1,13 @@
-import { PLAYER_DIRECTIONS, PLAYER_STARTS, SCENE_KEYS } from '../config.js';
+import { PLAYER_DIRECTIONS, PLAYER_STARTS, SCENE_KEYS } from '../config.js?v=2026-08-08-fish-cache-33';
 import GirlOne from '../entities/GirlOne.js';
 import GirlTwo from '../entities/GirlTwo.js';
 import KeyboardController from '../input/KeyboardController.js';
 import CameraFollowPoint from '../systems/CameraFollowPoint.js';
+import EnvironmentalEventManager from '../systems/EnvironmentalEventManager.js?v=2026-08-08-fish-cache-33';
+import FootstepSoundController from '../systems/FootstepSoundController.js?v=2026-08-08-fish-cache-33';
 import JourneyManager from '../systems/JourneyManager.js';
 import SideBySideFormation from '../systems/SideBySideFormation.js';
-import WorldLayer from '../systems/WorldLayer.js';
+import WorldLayer from '../systems/WorldLayer.js?v=2026-08-08-fish-cache-33';
 import GameHud from '../ui/GameHud.js';
 
 const Phaser = window.Phaser;
@@ -29,7 +31,11 @@ export default class GameScene extends Phaser.Scene {
     this.journeyManager = new JourneyManager(this, this.formation, this.worldLayer, {
       currentStopIndex: journeyState?.currentStopIndex,
     });
+    this.environmentalEventManager = new EnvironmentalEventManager(this, this.formation, this.worldLayer, {
+      currentStopIndex: journeyState?.currentStopIndex,
+    });
     this.cameraFollowPoint = new CameraFollowPoint(this, [this.girlOne, this.girlTwo], this.worldLayer.bounds);
+    this.footstepSoundController = new FootstepSoundController(this, this.formation);
     this.hud = new GameHud(this, this.girlOne, this.girlTwo);
 
     this.prepareFutureLearningEvents();
@@ -47,6 +53,8 @@ export default class GameScene extends Phaser.Scene {
     }
 
     this.journeyManager.update();
+    this.environmentalEventManager.update();
+    this.footstepSoundController.update();
     this.cameraFollowPoint.update();
     this.hud.update();
   }

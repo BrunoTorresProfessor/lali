@@ -45,6 +45,10 @@ export default class SideBySideFormation {
     this.keepSideBySide();
   }
 
+  isMoving() {
+    return this.players.some((player) => Math.abs(player.body?.velocity?.x ?? 0) > 1);
+  }
+
   keepSideBySide() {
     // Mantem as protagonistas juntas no percurso horizontal.
     // Futuro: trocar esta regra por formacoes diferentes em puzzles ou cenas.

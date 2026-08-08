@@ -3,7 +3,7 @@ const Phaser = window.Phaser;
 export const GAME_WIDTH = 1280;
 export const GAME_HEIGHT = 720;
 export const PLAYER_SPEED = 180;
-export const ASSET_VERSION = '2026-08-07-route-cache-18';
+export const ASSET_VERSION = '2026-08-08-fish-cache-33';
 
 export const withAssetVersion = (path) => `${path}?v=${ASSET_VERSION}`;
 
@@ -12,11 +12,13 @@ export const SCENE_KEYS = Object.freeze({
   title: 'TitleScene',
   game: 'GameScene',
   bromeliadHouse: 'BromeliadHouseScene',
+  chafarizDasMusas: 'ChafarizDasMusasScene',
   credits: 'CreditsScene',
   greenhouses: 'GreenhousesScene',
   herbarium: 'HerbariumScene',
   lake: 'LakeScene',
   sensoryGarden: 'SensoryGardenScene',
+  sumauma: 'SumaumaScene',
   visitorCenter: 'VisitorCenterScene',
   museum: 'MuseumScene',
   orchidHouse: 'OrchidHouseScene',
@@ -27,11 +29,17 @@ export const ASSET_KEYS = Object.freeze({
   bromeliadHouse: 'bromeliario',
   bromeliadTransition: 'transicao-orquidario-bromeliario',
   bromeliadSensoryTransition: 'transicao-bromeliario-jardim-sensorial',
+  capuchinMonkeysChatter: 'capuchin-monkeys-chatter',
+  chafarizDasMusas: 'chafariz-das-musas',
   creditsBackground: 'enbt',
   enbtTransition: 'transicao-estufas-enbt',
   greenhouses: 'estufas',
   herbarium: 'herbario-rb',
   herbariumTransition: 'transicao-centro-herbario',
+  footstepSoftA: 'footstep-soft-a',
+  footstepSoftB: 'footstep-soft-b',
+  fishJump: 'fish-jump',
+  fishWaterSplash: 'fish-water-splash',
   lake: 'lago-frei-leandro',
   lakeTransition: 'transicao-herbario-lago',
   menuMusic: 'menu-music',
@@ -42,8 +50,11 @@ export const ASSET_KEYS = Object.freeze({
   orchidTransition: 'transicao-lago-orquidario',
   sensoryGarden: 'jardim-sensorial',
   sensoryMuseumTransition: 'transicao-jardim-sensorial-museu',
+  stoneWaterSplash: 'stone-water-splash',
+  sumauma: 'sumauma',
   titleBackground: 'title-background',
   transitionGarden: 'transition-garden',
+  toucanBlackBill: 'tucano-bico-preto',
   visitorCenter: 'visitor-center',
   visitorCenterSegment: 'visitor-center-segment',
   visitorCenterTransition: 'transicao-alameda-centro',
@@ -56,11 +67,17 @@ export const ASSET_PATHS = Object.freeze({
   bromeliadHouse: 'assets/cartoon/bromeliario-unificado.png',
   bromeliadSensoryTransition: 'assets/cartoon/transicao-bromeliario-jardim-sensorial.png',
   bromeliadTransition: 'assets/cartoon/transicao-orquidario-bromeliario.png',
+  capuchinMonkeysChatter: withAssetVersion('assets/audio/capuchin-monkeys-chatter.wav'),
+  chafarizDasMusas: 'assets/cartoon/chafariz-das-musas-unificado.png',
   creditsBackground: 'assets/cartoon/enbt-unificado.png',
   enbtTransition: 'assets/cartoon/transicao-estufas-enbt.png',
   greenhouses: 'assets/cartoon/estufas-unificado.png',
   herbarium: 'assets/cartoon/herbario-rb-unificado.png',
   herbariumTransition: 'assets/cartoon/transicao-centro-herbario.png',
+  footstepSoftA: withAssetVersion('assets/audio/footstep-soft-a.wav'),
+  footstepSoftB: withAssetVersion('assets/audio/footstep-soft-b.wav'),
+  fishJump: withAssetVersion('assets/cartoon/fish-jump.png'),
+  fishWaterSplash: withAssetVersion('assets/audio/fish-water-splash.wav'),
   lake: 'assets/cartoon/lago-frei-leandro-unificado.png',
   lakeTransition: 'assets/cartoon/transicao-herbario-lago.png',
   // Ambientes da jornada: use imagens reais ja adicionadas ao projeto.
@@ -71,9 +88,12 @@ export const ASSET_PATHS = Object.freeze({
   orchidTransition: 'assets/cartoon/transicao-lago-orquidario.png',
   sensoryGarden: 'assets/cartoon/jardim-sensorial-unificado.png',
   sensoryMuseumTransition: 'assets/cartoon/transicao-jardim-sensorial-museu.png',
+  stoneWaterSplash: withAssetVersion('assets/audio/stone-water-splash.wav'),
+  sumauma: withAssetVersion('assets/cartoon/sumauma-unificado.png'),
   // Tela inicial: trocar esta imagem para atualizar a capa do jogo.
   titleBackground: 'assets/menu/title-background.png',
   transitionGarden: 'assets/cartoon/transicao-jardim.png',
+  toucanBlackBill: withAssetVersion('assets/cartoon/tucano-bico-preto.png'),
   visitorCenter: 'assets/cartoon/centro-visitantes-unificado.png',
   visitorCenterSegment: 'assets/cartoon/centro-visitantes-segmento.png',
   visitorCenterTransition: 'assets/cartoon/transicao-alameda-centro.png',
@@ -82,7 +102,7 @@ export const ASSET_PATHS = Object.freeze({
   menuMusic: 'assets/audio/menu-theme.wav',
 });
 
-export const ROUTE_CHUNK_COUNT = 17;
+export const ROUTE_CHUNK_COUNT = 18;
 
 export const ROUTE_CHUNKS = Object.freeze(
   Array.from({ length: ROUTE_CHUNK_COUNT }, (_, index) => {
@@ -162,6 +182,11 @@ export const FORMATION_GAP = PLAYER_STARTS.girlTwo.x - PLAYER_STARTS.girlOne.x;
 export const CAMERA_LERP = 0.08;
 export const JOURNEY_RETURN_OFFSET = 180;
 export const ENVIRONMENT_VISIT_DURATION = 4200;
+export const FOOTSTEP_AUDIO = Object.freeze({
+  intervalMs: 330,
+  volume: 0.16,
+  rateVariation: 0.04,
+});
 
 export function createGameConfig(scenes) {
   return {

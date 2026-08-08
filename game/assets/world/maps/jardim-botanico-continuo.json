@@ -6,6 +6,42 @@
   "chunkWidth": 1280,
   "safetyMargin": 420,
   "source": "route-continuous generated from the approved route modules with 256px overlaps",
+  "events": [
+    {
+      "id": "tucano_bico_preto_antes_centro",
+      "type": "toucanFlyby",
+      "assetKey": "tucano-bico-preto",
+      "beforeStopId": "route_chunk_004",
+      "triggerOffsetFromEntry": 720,
+      "flight": {
+        "duration": 5000,
+        "scale": 0.25,
+        "y": 128
+      },
+      "speech": {
+        "speaker": "Laurinha",
+        "text": "Caramba Lizoca, um tucano do bico preto, que lindo!!",
+        "duration": 4300
+      }
+    },
+    {
+      "id": "peixe_lago_vitorias_regias",
+      "type": "fishJump",
+      "assetKey": "fish-jump",
+      "soundKey": "fish-water-splash",
+      "beforeStopId": "route_chunk_007",
+      "triggerOffsetFromEntry": 320,
+      "jump": {
+        "moduleX": 800,
+        "waterY": 350,
+        "height": 125,
+        "distance": 160,
+        "duration": 1250,
+        "scale": 0.42,
+        "soundVolume": 0.34
+      }
+    }
+  ],
   "modules": [
     {
       "id": "route_chunk_001",
@@ -68,6 +104,18 @@
       }
     },
     {
+      "id": "route_chunk_018",
+      "type": "walk",
+      "width": 1280,
+      "layers": [
+        {
+          "depth": 0,
+          "assetKey": "route-chunk-018",
+          "fit": "coverHeight"
+        }
+      ]
+    },
+    {
       "id": "route_chunk_005",
       "type": "stop",
       "width": 1280,
@@ -78,22 +126,22 @@
           "fit": "coverHeight"
         }
       ],
-      "sourceStopId": "herbarium_rb",
-      "scene": "HerbariumScene",
-      "title": "Herbario RB",
-      "entryRatio": 0.671875,
+      "sourceStopId": "sumauma",
+      "scene": "SumaumaScene",
+      "title": "Sumaúma",
+      "entryRatio": 0.78,
       "resumeOffset": 360,
       "learning": {
-        "objective": "Conhecer a importancia das colecoes botanicas.",
-        "npc": "guide_herbarium",
-        "dialogue": "dialogues/herbarium.json",
-        "minigame": "match_leaf",
-        "reward": "Registro de Exploradora"
+        "objective": "Observar as raizes tabulares e a importancia das arvores gigantes da floresta.",
+        "npc": "guide_sumauma",
+        "dialogue": "dialogues/sumauma.json",
+        "minigame": "observe_roots",
+        "reward": "Semente de Sumaúma"
       }
     },
     {
       "id": "route_chunk_006",
-      "type": "walk",
+      "type": "stop",
       "width": 1280,
       "layers": [
         {
@@ -101,7 +149,19 @@
           "assetKey": "route-chunk-006",
           "fit": "coverHeight"
         }
-      ]
+      ],
+      "sourceStopId": "chafariz_das_musas",
+      "scene": "ChafarizDasMusasScene",
+      "title": "Chafariz das Musas",
+      "entryRatio": 0.5287,
+      "resumeOffset": 360,
+      "learning": {
+        "objective": "Observar animais silvestres com respeito e sem alimentar os macacos-prego.",
+        "npc": "guide_chafariz_das_musas",
+        "dialogue": "dialogues/chafariz_das_musas.json",
+        "minigame": "wildlife_observation",
+        "reward": "Cartao de Observacao da Fauna"
+      }
     },
     {
       "id": "route_chunk_007",
@@ -116,7 +176,7 @@
       ],
       "sourceStopId": "frei_leandro_lake",
       "scene": "LakeScene",
-      "title": "Lago Frei Leandro",
+      "title": "Lago das Vitórias-Régias",
       "entryRatio": 0.5287,
       "resumeOffset": 360,
       "learning": {
@@ -236,7 +296,7 @@
       ],
       "sourceStopId": "museum",
       "scene": "MuseumScene",
-      "title": "Museu do Meio Ambiente",
+      "title": "Museu do Jardim Botânico",
       "entryRatio": 0.671875,
       "resumeOffset": 360,
       "learning": {
@@ -285,7 +345,7 @@
     },
     {
       "id": "route_chunk_016",
-      "type": "walk",
+      "type": "stop",
       "width": 1280,
       "layers": [
         {
@@ -293,7 +353,19 @@
           "assetKey": "route-chunk-016",
           "fit": "coverHeight"
         }
-      ]
+      ],
+      "sourceStopId": "herbarium_rb",
+      "scene": "HerbariumScene",
+      "title": "Herbário RB",
+      "entryRatio": 0.5287,
+      "resumeOffset": 360,
+      "learning": {
+        "objective": "Conhecer a importancia das colecoes botanicas.",
+        "npc": "guide_herbarium",
+        "dialogue": "dialogues/herbarium.json",
+        "minigame": "match_leaf",
+        "reward": "Registro de Exploradora"
+      }
     },
     {
       "id": "route_chunk_017",
@@ -308,7 +380,7 @@
       ],
       "sourceStopId": "national_school",
       "scene": "CreditsScene",
-      "title": "Escola Nacional de Botanica Tropical",
+      "title": "Escola Nacional de Botânica Tropical",
       "entryRatio": 0.328125,
       "resumeOffset": 360,
       "learning": {

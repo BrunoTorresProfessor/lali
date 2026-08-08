@@ -3,6 +3,6 @@ import EnvironmentScene from './EnvironmentScene.js';
 
 export default class MuseumScene extends EnvironmentScene {
   constructor() {
-    super(SCENE_KEYS.museum, ASSET_KEYS.museum, 'Museu do Meio Ambiente');
+    super(SCENE_KEYS.museum, ASSET_KEYS.museum, 'Museu do Jardim Botânico');
   }
 }

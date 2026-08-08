@@ -11,6 +11,7 @@ export default class WorldLayer {
     this.modules = this.layout.modules;
     this.stops = this.layout.stops;
     this.bounds = this.layout.bounds;
+    this.events = this.createEventLayouts(this.worldMap.events ?? []);
 
     this.scene.physics.world.setBounds(0, 0, this.bounds.width, this.bounds.height);
   }
@@ -23,6 +24,35 @@ export default class WorldLayer {
     const offset = stop.resumeOffset ?? JOURNEY_RETURN_OFFSET;
 
     return this.clampCenterX(stop.endX + offset);
+  }
+
+  createEventLayouts(events) {
+    return events.map((eventConfig) => this.createEventLayout(eventConfig)).filter(Boolean);
+  }
+
+  createEventLayout(eventConfig) {
+    const beforeStop = this.findStop(eventConfig.beforeStopId);
+    const triggerX = Number.isFinite(eventConfig.triggerX)
+      ? eventConfig.triggerX
+      : beforeStop.entryX - (eventConfig.triggerOffsetFromEntry ?? 600);
+
+    return {
+      ...eventConfig,
+      beforeStopIndex: beforeStop.stopIndex,
+      stopStartX: beforeStop.startX,
+      stopEntryX: beforeStop.entryX,
+      triggerX: this.clampCenterX(triggerX),
+    };
+  }
+
+  findStop(stopId) {
+    const stop = this.stops.find((candidate) => candidate.id === stopId || candidate.sourceStopId === stopId);
+
+    if (!stop) {
+      throw new Error(`World event references unknown stop "${stopId}".`);
+    }
+
+    return stop;
   }
 
   clampCenterX(centerX) {

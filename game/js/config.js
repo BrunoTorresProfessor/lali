@@ -3,7 +3,7 @@ const Phaser = window.Phaser;
 export const GAME_WIDTH = 1280;
 export const GAME_HEIGHT = 720;
 export const PLAYER_SPEED = 180;
-export const ASSET_VERSION = '2026-08-08-fish-cache-33';
+export const ASSET_VERSION = '2026-08-09-woodpecker-event-55';
 
 export const withAssetVersion = (path) => `${path}?v=${ASSET_VERSION}`;
 
@@ -17,6 +17,7 @@ export const SCENE_KEYS = Object.freeze({
   greenhouses: 'GreenhousesScene',
   herbarium: 'HerbariumScene',
   lake: 'LakeScene',
+  nationalSchool: 'NationalSchoolScene',
   sensoryGarden: 'SensoryGardenScene',
   sumauma: 'SumaumaScene',
   visitorCenter: 'VisitorCenterScene',
@@ -30,6 +31,7 @@ export const ASSET_KEYS = Object.freeze({
   bromeliadTransition: 'transicao-orquidario-bromeliario',
   bromeliadSensoryTransition: 'transicao-bromeliario-jardim-sensorial',
   capuchinMonkeysChatter: 'capuchin-monkeys-chatter',
+  capuchinMonkeyRunner: 'capuchin-monkey-runner',
   chafarizDasMusas: 'chafariz-das-musas',
   creditsBackground: 'enbt',
   enbtTransition: 'transicao-estufas-enbt',
@@ -58,6 +60,8 @@ export const ASSET_KEYS = Object.freeze({
   visitorCenter: 'visitor-center',
   visitorCenterSegment: 'visitor-center-segment',
   visitorCenterTransition: 'transicao-alameda-centro',
+  woodpeckerDrumming: 'woodpecker-drumming',
+  woodpeckerPeck: 'woodpecker-peck',
   worldMap: 'world-map-jardim-botanico',
 });
 
@@ -68,6 +72,7 @@ export const ASSET_PATHS = Object.freeze({
   bromeliadSensoryTransition: 'assets/cartoon/transicao-bromeliario-jardim-sensorial.png',
   bromeliadTransition: 'assets/cartoon/transicao-orquidario-bromeliario.png',
   capuchinMonkeysChatter: withAssetVersion('assets/audio/capuchin-monkeys-chatter.wav'),
+  capuchinMonkeyRunner: withAssetVersion('assets/cartoon/capuchin-monkey-run.png'),
   chafarizDasMusas: 'assets/cartoon/chafariz-das-musas-unificado.png',
   creditsBackground: 'assets/cartoon/enbt-unificado.png',
   enbtTransition: 'assets/cartoon/transicao-estufas-enbt.png',
@@ -97,12 +102,14 @@ export const ASSET_PATHS = Object.freeze({
   visitorCenter: 'assets/cartoon/centro-visitantes-unificado.png',
   visitorCenterSegment: 'assets/cartoon/centro-visitantes-segmento.png',
   visitorCenterTransition: 'assets/cartoon/transicao-alameda-centro.png',
+  woodpeckerDrumming: withAssetVersion('assets/audio/woodpecker-drumming.wav'),
+  woodpeckerPeck: withAssetVersion('assets/cartoon/woodpecker-peck.png'),
   worldMap: withAssetVersion('assets/world/maps/jardim-botanico-continuo.json'),
   // Musica curta em loop para a tela inicial.
   menuMusic: 'assets/audio/menu-theme.wav',
 });
 
-export const ROUTE_CHUNK_COUNT = 18;
+export const ROUTE_CHUNK_COUNT = 19;
 
 export const ROUTE_CHUNKS = Object.freeze(
   Array.from({ length: ROUTE_CHUNK_COUNT }, (_, index) => {

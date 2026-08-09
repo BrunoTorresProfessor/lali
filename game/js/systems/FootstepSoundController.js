@@ -1,4 +1,4 @@
-import { ASSET_KEYS, FOOTSTEP_AUDIO } from '../config.js?v=2026-08-08-fish-cache-33';
+import { ASSET_KEYS, FOOTSTEP_AUDIO } from '../config.js?v=2026-08-09-woodpecker-event-55';
 
 const Phaser = window.Phaser;
 

@@ -8,6 +8,23 @@
   "source": "route-continuous generated from the approved route modules with 256px overlaps",
   "events": [
     {
+      "id": "pica_pau_palmeira_alameda",
+      "type": "woodpeckerPeck",
+      "assetKey": "woodpecker-peck",
+      "soundKey": "woodpecker-drumming",
+      "beforeStopId": "route_chunk_004",
+      "triggerX": 2100,
+      "peck": {
+        "worldX": 2620,
+        "y": 318,
+        "scale": 0.52,
+        "duration": 5400,
+        "soundVolume": 0.42,
+        "trunkX": 2652,
+        "tapY": 296
+      }
+    },
+    {
       "id": "tucano_bico_preto_antes_centro",
       "type": "toucanFlyby",
       "assetKey": "tucano-bico-preto",
@@ -39,6 +56,18 @@
         "duration": 1250,
         "scale": 0.42,
         "soundVolume": 0.34
+      }
+    },
+    {
+      "id": "macaco_prego_antes_chafariz",
+      "type": "capuchinRun",
+      "assetKey": "capuchin-monkey-runner",
+      "beforeStopId": "route_chunk_006",
+      "triggerOffsetFromEntry": 950,
+      "speech": {
+        "speaker": "Laurinha",
+        "text": "Olha, maninha, um macaco-prego!",
+        "duration": 3600
       }
     }
   ],
@@ -129,7 +158,7 @@
       "sourceStopId": "sumauma",
       "scene": "SumaumaScene",
       "title": "Sumaúma",
-      "entryRatio": 0.78,
+      "entryRatio": 0.5,
       "resumeOffset": 360,
       "learning": {
         "objective": "Observar as raizes tabulares e a importancia das arvores gigantes da floresta.",
@@ -138,6 +167,18 @@
         "minigame": "observe_roots",
         "reward": "Semente de Sumaúma"
       }
+    },
+    {
+      "id": "route_chunk_019",
+      "type": "walk",
+      "width": 1280,
+      "layers": [
+        {
+          "depth": 0,
+          "assetKey": "route-chunk-019",
+          "fit": "coverHeight"
+        }
+      ]
     },
     {
       "id": "route_chunk_006",
@@ -379,7 +420,7 @@
         }
       ],
       "sourceStopId": "national_school",
-      "scene": "CreditsScene",
+      "scene": "NationalSchoolScene",
       "title": "Escola Nacional de Botânica Tropical",
       "entryRatio": 0.328125,
       "resumeOffset": 360,

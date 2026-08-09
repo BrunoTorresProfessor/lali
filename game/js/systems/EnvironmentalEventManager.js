@@ -1,9 +1,13 @@
-import FishJumpEvent from './FishJumpEvent.js?v=2026-08-08-fish-cache-33';
-import ToucanFlybyEvent from './ToucanFlybyEvent.js?v=2026-08-08-fish-cache-33';
+import CapuchinRunEvent from './CapuchinRunEvent.js?v=2026-08-09-woodpecker-event-55';
+import FishJumpEvent from './FishJumpEvent.js?v=2026-08-09-woodpecker-event-55';
+import ToucanFlybyEvent from './ToucanFlybyEvent.js?v=2026-08-09-woodpecker-event-55';
+import WoodpeckerPeckEvent from './WoodpeckerPeckEvent.js?v=2026-08-09-woodpecker-event-55';
 
 const EVENT_TYPES = Object.freeze({
+  capuchinRun: 'capuchinRun',
   fishJump: 'fishJump',
   toucanFlyby: 'toucanFlyby',
+  woodpeckerPeck: 'woodpeckerPeck',
 });
 
 export default class EnvironmentalEventManager {
@@ -45,8 +49,16 @@ export default class EnvironmentalEventManager {
       new ToucanFlybyEvent(this.scene, this.formation, eventConfig).play();
     }
 
+    if (eventConfig.type === EVENT_TYPES.capuchinRun) {
+      new CapuchinRunEvent(this.scene, this.formation, eventConfig).play();
+    }
+
     if (eventConfig.type === EVENT_TYPES.fishJump) {
       new FishJumpEvent(this.scene, eventConfig).play();
+    }
+
+    if (eventConfig.type === EVENT_TYPES.woodpeckerPeck) {
+      new WoodpeckerPeckEvent(this.scene, eventConfig).play();
     }
   }
 }

@@ -7,7 +7,7 @@ import {
   ROUTE_CHUNKS,
   SCENE_KEYS,
   withAssetVersion,
-} from '../config.js?v=2026-08-08-fish-cache-33';
+} from '../config.js?v=2026-08-09-woodpecker-event-55';
 
 const Phaser = window.Phaser;
 
@@ -21,6 +21,7 @@ export default class BootScene extends Phaser.Scene {
     this.load.image(ASSET_KEYS.bromeliadHouse, ASSET_PATHS.bromeliadHouse);
     this.load.image(ASSET_KEYS.bromeliadSensoryTransition, ASSET_PATHS.bromeliadSensoryTransition);
     this.load.image(ASSET_KEYS.bromeliadTransition, ASSET_PATHS.bromeliadTransition);
+    this.load.image(ASSET_KEYS.capuchinMonkeyRunner, ASSET_PATHS.capuchinMonkeyRunner);
     this.load.image(ASSET_KEYS.chafarizDasMusas, ASSET_PATHS.chafarizDasMusas);
     this.load.image(ASSET_KEYS.creditsBackground, ASSET_PATHS.creditsBackground);
     this.load.image(ASSET_KEYS.enbtTransition, ASSET_PATHS.enbtTransition);
@@ -44,6 +45,10 @@ export default class BootScene extends Phaser.Scene {
     this.load.image(ASSET_KEYS.visitorCenter, ASSET_PATHS.visitorCenter);
     this.load.image(ASSET_KEYS.visitorCenterSegment, ASSET_PATHS.visitorCenterSegment);
     this.load.image(ASSET_KEYS.visitorCenterTransition, ASSET_PATHS.visitorCenterTransition);
+    this.load.spritesheet(ASSET_KEYS.woodpeckerPeck, ASSET_PATHS.woodpeckerPeck, {
+      frameWidth: 128,
+      frameHeight: 128,
+    });
     this.loadContinuousRouteChunks();
     this.load.json(ASSET_KEYS.worldMap, ASSET_PATHS.worldMap);
     this.load.audio(ASSET_KEYS.capuchinMonkeysChatter, ASSET_PATHS.capuchinMonkeysChatter);
@@ -52,6 +57,7 @@ export default class BootScene extends Phaser.Scene {
     this.load.audio(ASSET_KEYS.footstepSoftB, ASSET_PATHS.footstepSoftB);
     this.load.audio(ASSET_KEYS.menuMusic, ASSET_PATHS.menuMusic);
     this.load.audio(ASSET_KEYS.stoneWaterSplash, ASSET_PATHS.stoneWaterSplash);
+    this.load.audio(ASSET_KEYS.woodpeckerDrumming, ASSET_PATHS.woodpeckerDrumming);
     this.loadPlayerSpritesheets();
   }
 

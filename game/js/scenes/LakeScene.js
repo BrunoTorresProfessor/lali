@@ -1,4 +1,4 @@
-import { ASSET_KEYS, SCENE_KEYS } from '../config.js?v=2026-08-08-fish-cache-33';
+import { ASSET_KEYS, SCENE_KEYS } from '../config.js?v=2026-08-09-woodpecker-event-55';
 import EnvironmentScene from './EnvironmentScene.js';
 
 export default class LakeScene extends EnvironmentScene {

@@ -1,0 +1,28 @@
+import { ASSET_KEYS, SCENE_KEYS } from '../config.js?v=2026-08-09-woodpecker-event-55';
+import EnvironmentScene from './EnvironmentScene.js';
+
+const Phaser = window.Phaser;
+
+export default class NationalSchoolScene extends EnvironmentScene {
+  constructor() {
+    super(
+      SCENE_KEYS.nationalSchool,
+      ASSET_KEYS.creditsBackground,
+      'Escola Nacional de Botânica Tropical',
+    );
+  }
+
+  // Depois da última parada da jornada, os créditos sobem em uma cena própria.
+  returnToTrail() {
+    if (this.hasReturned) {
+      return;
+    }
+
+    this.hasReturned = true;
+    this.stopAmbientAudio();
+    this.cameras.main.fadeOut(450, 10, 24, 18);
+    this.cameras.main.once(Phaser.Cameras.Scene2D.Events.FADE_OUT_COMPLETE, () => {
+      this.scene.start(SCENE_KEYS.credits);
+    });
+  }
+}

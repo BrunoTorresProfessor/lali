@@ -1,13 +1,13 @@
-import { PLAYER_DIRECTIONS, PLAYER_STARTS, SCENE_KEYS } from '../config.js?v=2026-08-08-fish-cache-33';
+import { PLAYER_DIRECTIONS, PLAYER_STARTS, SCENE_KEYS } from '../config.js?v=2026-08-09-woodpecker-event-55';
 import GirlOne from '../entities/GirlOne.js';
 import GirlTwo from '../entities/GirlTwo.js';
 import KeyboardController from '../input/KeyboardController.js';
 import CameraFollowPoint from '../systems/CameraFollowPoint.js';
-import EnvironmentalEventManager from '../systems/EnvironmentalEventManager.js?v=2026-08-08-fish-cache-33';
-import FootstepSoundController from '../systems/FootstepSoundController.js?v=2026-08-08-fish-cache-33';
+import EnvironmentalEventManager from '../systems/EnvironmentalEventManager.js?v=2026-08-09-woodpecker-event-55';
+import FootstepSoundController from '../systems/FootstepSoundController.js?v=2026-08-09-woodpecker-event-55';
 import JourneyManager from '../systems/JourneyManager.js';
 import SideBySideFormation from '../systems/SideBySideFormation.js';
-import WorldLayer from '../systems/WorldLayer.js?v=2026-08-08-fish-cache-33';
+import WorldLayer from '../systems/WorldLayer.js?v=2026-08-09-woodpecker-event-55';
 import GameHud from '../ui/GameHud.js';
 
 const Phaser = window.Phaser;

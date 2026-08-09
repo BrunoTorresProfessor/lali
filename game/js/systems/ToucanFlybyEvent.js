@@ -1,5 +1,5 @@
-import { GAME_WIDTH, PLAYER_ANIMATION_STATES } from '../config.js?v=2026-08-08-fish-cache-33';
-import SpeechBubble from '../ui/SpeechBubble.js?v=2026-08-08-fish-cache-33';
+import { GAME_WIDTH, PLAYER_ANIMATION_STATES } from '../config.js?v=2026-08-09-woodpecker-event-55';
+import SpeechBubble from '../ui/SpeechBubble.js?v=2026-08-09-woodpecker-event-55';
 
 const DEFAULT_FLIGHT = Object.freeze({
   duration: 4800,

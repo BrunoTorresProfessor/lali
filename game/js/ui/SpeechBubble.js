@@ -1,4 +1,4 @@
-import { GAME_HEIGHT, GAME_WIDTH } from '../config.js?v=2026-08-08-fish-cache-33';
+import { GAME_HEIGHT, GAME_WIDTH } from '../config.js?v=2026-08-09-woodpecker-event-55';
 
 const Phaser = window.Phaser;
 

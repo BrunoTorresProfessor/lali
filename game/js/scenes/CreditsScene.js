@@ -1,4 +1,4 @@
-import { ASSET_KEYS, GAME_HEIGHT, GAME_WIDTH, SCENE_KEYS } from '../config.js?v=2026-08-08-fish-cache-33';
+import { ASSET_KEYS, GAME_HEIGHT, GAME_WIDTH, SCENE_KEYS } from '../config.js?v=2026-08-09-woodpecker-event-55';
 
 const Phaser = window.Phaser;
 
@@ -24,11 +24,9 @@ export default class CreditsScene extends Phaser.Scene {
     super(SCENE_KEYS.credits);
   }
 
-  create(data = {}) {
+  create() {
     this.hasFinished = false;
-    this.activeTitle = data.title ?? 'Escola Nacional de Botânica Tropical';
     this.createBackground();
-    this.createLocationTitle();
     this.createCredits();
     this.createControls();
     this.playSoftMusic();
@@ -76,24 +74,6 @@ export default class CreditsScene extends Phaser.Scene {
       ease: 'Linear',
       onComplete: () => this.finishCredits(),
     });
-  }
-
-  createLocationTitle() {
-    this.add.rectangle(GAME_WIDTH / 2, GAME_HEIGHT - 52, GAME_WIDTH, 104, 0x06140f, 0.42).setDepth(12);
-    this.add
-      .text(GAME_WIDTH / 2, GAME_HEIGHT - 68, this.activeTitle, {
-        align: 'center',
-        color: '#ffffff',
-        fixedWidth: 1120,
-        fontFamily: 'Georgia, Times New Roman, serif',
-        fontSize: '34px',
-        fontStyle: 'bold',
-        stroke: '#142217',
-        strokeThickness: 5,
-        wordWrap: { width: 1060, useAdvancedWrap: true },
-      })
-      .setOrigin(0.5)
-      .setDepth(20);
   }
 
   createControls() {

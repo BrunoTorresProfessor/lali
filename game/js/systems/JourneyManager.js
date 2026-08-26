@@ -1,4 +1,4 @@
-import { SCENE_KEYS } from '../config.js';
+import { SCENE_KEYS } from '../config.js?v=2026-08-26-seed-reward-sound-58';
 
 const Phaser = window.Phaser;
 
@@ -9,6 +9,7 @@ export default class JourneyManager {
     this.worldLayer = worldLayer;
     this.stops = worldLayer.stops;
     this.currentStopIndex = options.currentStopIndex ?? 0;
+    this.seedCount = options.seedCount ?? 0;
     this.isTransitioning = false;
   }
 
@@ -78,6 +79,7 @@ export default class JourneyManager {
       journeyState: {
         currentStopIndex: this.currentStopIndex + 1,
         resumeCenterX: this.worldLayer.getResumeCenterX(currentStop),
+        seedCount: this.seedCount,
       },
     };
   }

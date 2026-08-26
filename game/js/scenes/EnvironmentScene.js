@@ -1,4 +1,4 @@
-import { ENVIRONMENT_VISIT_DURATION, GAME_HEIGHT, GAME_WIDTH } from '../config.js';
+import { ENVIRONMENT_VISIT_DURATION, GAME_HEIGHT, GAME_WIDTH, PHASE_SEED_REWARD } from '../config.js?v=2026-08-26-seed-reward-sound-58';
 
 const Phaser = window.Phaser;
 
@@ -111,10 +111,24 @@ export default class EnvironmentScene extends Phaser.Scene {
     }
 
     this.hasReturned = true;
+    const completedJourneyState = this.completePhase();
+
     this.stopAmbientAudio();
     this.cameras.main.fadeOut(450, 10, 24, 18);
     this.cameras.main.once(Phaser.Cameras.Scene2D.Events.FADE_OUT_COMPLETE, () => {
-      this.scene.start(this.returnScene, { journeyState: this.journeyState });
+      this.scene.start(this.returnScene, { journeyState: completedJourneyState });
     });
+  }
+
+  completePhase() {
+    const journeyState = this.journeyState ?? {};
+    const currentSeedCount = Number.isFinite(journeyState.seedCount) ? journeyState.seedCount : 0;
+
+    return {
+      ...journeyState,
+      seedCount: currentSeedCount + PHASE_SEED_REWARD,
+      seedRewardAmount: PHASE_SEED_REWARD,
+      seedRewardEarned: true,
+    };
   }
 }

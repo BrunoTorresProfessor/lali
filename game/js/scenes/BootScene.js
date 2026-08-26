@@ -7,7 +7,7 @@ import {
   ROUTE_CHUNKS,
   SCENE_KEYS,
   withAssetVersion,
-} from '../config.js?v=2026-08-09-woodpecker-event-55';
+} from '../config.js?v=2026-08-26-seed-reward-sound-58';
 
 const Phaser = window.Phaser;
 
@@ -38,6 +38,7 @@ export default class BootScene extends Phaser.Scene {
     this.load.image(ASSET_KEYS.orchidTransition, ASSET_PATHS.orchidTransition);
     this.load.image(ASSET_KEYS.sensoryGarden, ASSET_PATHS.sensoryGarden);
     this.load.image(ASSET_KEYS.sensoryMuseumTransition, ASSET_PATHS.sensoryMuseumTransition);
+    this.load.image(ASSET_KEYS.seedIcon, ASSET_PATHS.seedIcon);
     this.load.image(ASSET_KEYS.sumauma, ASSET_PATHS.sumauma);
     this.load.image(ASSET_KEYS.titleBackground, ASSET_PATHS.titleBackground);
     this.load.image(ASSET_KEYS.transitionGarden, ASSET_PATHS.transitionGarden);
@@ -56,6 +57,7 @@ export default class BootScene extends Phaser.Scene {
     this.load.audio(ASSET_KEYS.footstepSoftA, ASSET_PATHS.footstepSoftA);
     this.load.audio(ASSET_KEYS.footstepSoftB, ASSET_PATHS.footstepSoftB);
     this.load.audio(ASSET_KEYS.menuMusic, ASSET_PATHS.menuMusic);
+    this.load.audio(ASSET_KEYS.seedRewardSound, ASSET_PATHS.seedRewardSound);
     this.load.audio(ASSET_KEYS.stoneWaterSplash, ASSET_PATHS.stoneWaterSplash);
     this.load.audio(ASSET_KEYS.woodpeckerDrumming, ASSET_PATHS.woodpeckerDrumming);
     this.loadPlayerSpritesheets();

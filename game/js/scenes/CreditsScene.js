@@ -1,4 +1,4 @@
-import { ASSET_KEYS, GAME_HEIGHT, GAME_WIDTH, SCENE_KEYS } from '../config.js?v=2026-08-09-woodpecker-event-55';
+import { ASSET_KEYS, GAME_HEIGHT, GAME_WIDTH, SCENE_KEYS } from '../config.js?v=2026-08-26-seed-reward-sound-58';
 
 const Phaser = window.Phaser;
 

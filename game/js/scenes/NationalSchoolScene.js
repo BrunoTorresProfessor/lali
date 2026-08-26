@@ -1,5 +1,5 @@
-import { ASSET_KEYS, SCENE_KEYS } from '../config.js?v=2026-08-09-woodpecker-event-55';
-import EnvironmentScene from './EnvironmentScene.js';
+import { ASSET_KEYS, SCENE_KEYS } from '../config.js?v=2026-08-26-seed-reward-sound-58';
+import EnvironmentScene from './EnvironmentScene.js?v=2026-08-26-seed-reward-sound-58';
 
 const Phaser = window.Phaser;
 
@@ -19,10 +19,12 @@ export default class NationalSchoolScene extends EnvironmentScene {
     }
 
     this.hasReturned = true;
+    const completedJourneyState = this.completePhase();
+
     this.stopAmbientAudio();
     this.cameras.main.fadeOut(450, 10, 24, 18);
     this.cameras.main.once(Phaser.Cameras.Scene2D.Events.FADE_OUT_COMPLETE, () => {
-      this.scene.start(SCENE_KEYS.credits);
+      this.scene.start(SCENE_KEYS.credits, { journeyState: completedJourneyState });
     });
   }
 }

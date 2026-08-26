@@ -3,7 +3,8 @@ const Phaser = window.Phaser;
 export const GAME_WIDTH = 1280;
 export const GAME_HEIGHT = 720;
 export const PLAYER_SPEED = 180;
-export const ASSET_VERSION = '2026-08-09-woodpecker-event-55';
+export const ASSET_VERSION = '2026-08-26-seed-reward-sound-58';
+export const PHASE_SEED_REWARD = 1;
 
 export const withAssetVersion = (path) => `${path}?v=${ASSET_VERSION}`;
 
@@ -52,6 +53,8 @@ export const ASSET_KEYS = Object.freeze({
   orchidTransition: 'transicao-lago-orquidario',
   sensoryGarden: 'jardim-sensorial',
   sensoryMuseumTransition: 'transicao-jardim-sensorial-museu',
+  seedIcon: 'seed-icon',
+  seedRewardSound: 'seed-reward-sound',
   stoneWaterSplash: 'stone-water-splash',
   sumauma: 'sumauma',
   titleBackground: 'title-background',
@@ -93,6 +96,8 @@ export const ASSET_PATHS = Object.freeze({
   orchidTransition: 'assets/cartoon/transicao-lago-orquidario.png',
   sensoryGarden: 'assets/cartoon/jardim-sensorial-unificado.png',
   sensoryMuseumTransition: 'assets/cartoon/transicao-jardim-sensorial-museu.png',
+  seedIcon: withAssetVersion('assets/ui/seed-icon.png'),
+  seedRewardSound: withAssetVersion('assets/audio/seed-reward.wav'),
   stoneWaterSplash: withAssetVersion('assets/audio/stone-water-splash.wav'),
   sumauma: withAssetVersion('assets/cartoon/sumauma-unificado.png'),
   // Tela inicial: trocar esta imagem para atualizar a capa do jogo.

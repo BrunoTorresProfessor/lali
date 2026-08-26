@@ -1,14 +1,21 @@
-import { GAME_WIDTH } from '../config.js';
+import { ASSET_KEYS, GAME_WIDTH } from '../config.js?v=2026-08-26-seed-reward-sound-58';
+
+const Phaser = window.Phaser;
 
 export default class GameHud {
-  constructor(scene, girlOne, girlTwo) {
+  constructor(scene, girlOne, girlTwo, options = {}) {
     this.scene = scene;
     this.girlOne = girlOne;
     this.girlTwo = girlTwo;
+    this.seedCount = options.seedCount ?? 0;
+    this.seedReward = options.seedReward ?? 0;
     this.titleText = this.createTitleText();
-    this.statsText = this.createStatsText();
+    this.fpsText = this.createFpsText();
+    this.seedCounter = this.createSeedCounter();
+    this.positionText = this.createPositionText();
 
     this.update();
+    this.showSeedRewardIfNeeded();
   }
 
   createTitleText() {
@@ -25,9 +32,48 @@ export default class GameHud {
       .setScrollFactor(0);
   }
 
-  createStatsText() {
+  createFpsText() {
     return this.scene.add
       .text(GAME_WIDTH - 18, 16, '', {
+        align: 'right',
+        color: '#ffffff',
+        fontFamily: 'Consolas, "Courier New", monospace',
+        fontSize: '18px',
+        lineSpacing: 4,
+        stroke: '#1b2a20',
+        strokeThickness: 4,
+      })
+      .setDepth(100)
+      .setOrigin(1, 0)
+      .setScrollFactor(0);
+  }
+
+  createSeedCounter() {
+    const container = this.scene.add.container(GAME_WIDTH - 18, 48).setDepth(100).setScrollFactor(0);
+    const background = this.scene.add
+      .rectangle(-48, 16, 96, 34, 0x10271c, 0.52)
+      .setOrigin(0.5)
+      .setStrokeStyle(2, 0xf2d278, 0.55);
+    const icon = this.scene.add.image(-76, 16, ASSET_KEYS.seedIcon).setDisplaySize(27, 27);
+    const valueText = this.scene.add
+      .text(-52, 16, String(this.seedCount), {
+        color: '#ffffff',
+        fontFamily: 'Arial, Helvetica, sans-serif',
+        fontSize: '22px',
+        fontStyle: 'bold',
+        stroke: '#1b2a20',
+        strokeThickness: 4,
+      })
+      .setOrigin(0, 0.5);
+
+    container.add([background, icon, valueText]);
+
+    return { container, icon, valueText };
+  }
+
+  createPositionText() {
+    return this.scene.add
+      .text(GAME_WIDTH - 18, 88, '', {
         align: 'right',
         color: '#ffffff',
         fontFamily: 'Consolas, "Courier New", monospace',
@@ -44,10 +90,94 @@ export default class GameHud {
   update() {
     const fps = Math.round(this.scene.game.loop.actualFps || 0);
 
-    this.statsText.setText([
-      `FPS: ${fps}`,
+    this.fpsText.setText(`FPS: ${fps}`);
+    this.seedCounter.valueText.setText(String(this.seedCount));
+    this.positionText.setText([
       `Laurinha: x=${Math.round(this.girlOne.x)} y=${Math.round(this.girlOne.y)}`,
       `Lizoca: x=${Math.round(this.girlTwo.x)} y=${Math.round(this.girlTwo.y)}`,
     ]);
+  }
+
+  showSeedRewardIfNeeded() {
+    if (this.seedReward <= 0) {
+      return;
+    }
+
+    this.scene.time.delayedCall(360, () => {
+      this.playSeedRewardSound();
+      this.pulseSeedCounter();
+      this.showSeedRewardToast(this.seedReward);
+    });
+  }
+
+  playSeedRewardSound() {
+    const key = ASSET_KEYS.seedRewardSound;
+    const audioCache = this.scene.cache.audio;
+    const hasRewardSound = Boolean(audioCache?.exists?.(key) || audioCache?.has?.(key));
+
+    if (!hasRewardSound) {
+      return;
+    }
+
+    if (this.scene.sound.locked) {
+      this.scene.sound.once(Phaser.Sound.Events.UNLOCKED, () => {
+        this.scene.sound.play(key, { volume: 0.46 });
+      });
+      return;
+    }
+
+    this.scene.sound.play(key, { volume: 0.46 });
+  }
+
+  pulseSeedCounter() {
+    this.scene.tweens.add({
+      targets: this.seedCounter.container,
+      scale: 1.08,
+      duration: 180,
+      ease: 'Sine.easeOut',
+      yoyo: true,
+    });
+  }
+
+  showSeedRewardToast(amount) {
+    const seedLabel = amount === 1 ? 'semente' : 'sementes';
+    const container = this.scene.add.container(GAME_WIDTH - 116, 92).setDepth(110).setScrollFactor(0).setAlpha(0);
+    const background = this.scene.add
+      .rectangle(0, 0, 164, 38, 0x143220, 0.74)
+      .setOrigin(0.5)
+      .setStrokeStyle(2, 0xf2d278, 0.5);
+    const icon = this.scene.add.image(-61, 0, ASSET_KEYS.seedIcon).setDisplaySize(24, 24);
+    const text = this.scene.add
+      .text(-36, 0, `+${amount} ${seedLabel}`, {
+        color: '#fff8cf',
+        fontFamily: 'Arial, Helvetica, sans-serif',
+        fontSize: '18px',
+        fontStyle: 'bold',
+        stroke: '#14321f',
+        strokeThickness: 3,
+      })
+      .setOrigin(0, 0.5);
+
+    container.add([background, icon, text]);
+
+    this.scene.tweens.add({
+      targets: container,
+      alpha: 1,
+      y: 82,
+      duration: 220,
+      ease: 'Sine.easeOut',
+      onComplete: () => {
+        this.scene.time.delayedCall(950, () => {
+          this.scene.tweens.add({
+            targets: container,
+            alpha: 0,
+            y: 68,
+            duration: 320,
+            ease: 'Sine.easeIn',
+            onComplete: () => container.destroy(),
+          });
+        });
+      },
+    });
   }
 }

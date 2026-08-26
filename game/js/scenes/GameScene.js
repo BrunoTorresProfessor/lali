@@ -1,14 +1,14 @@
-import { PLAYER_DIRECTIONS, PLAYER_STARTS, SCENE_KEYS } from '../config.js?v=2026-08-09-woodpecker-event-55';
+import { PLAYER_DIRECTIONS, PLAYER_STARTS, SCENE_KEYS } from '../config.js?v=2026-08-26-seed-reward-sound-58';
 import GirlOne from '../entities/GirlOne.js';
 import GirlTwo from '../entities/GirlTwo.js';
 import KeyboardController from '../input/KeyboardController.js';
 import CameraFollowPoint from '../systems/CameraFollowPoint.js';
-import EnvironmentalEventManager from '../systems/EnvironmentalEventManager.js?v=2026-08-09-woodpecker-event-55';
-import FootstepSoundController from '../systems/FootstepSoundController.js?v=2026-08-09-woodpecker-event-55';
-import JourneyManager from '../systems/JourneyManager.js';
+import EnvironmentalEventManager from '../systems/EnvironmentalEventManager.js?v=2026-08-26-seed-reward-sound-58';
+import FootstepSoundController from '../systems/FootstepSoundController.js?v=2026-08-26-seed-reward-sound-58';
+import JourneyManager from '../systems/JourneyManager.js?v=2026-08-26-seed-reward-sound-58';
 import SideBySideFormation from '../systems/SideBySideFormation.js';
-import WorldLayer from '../systems/WorldLayer.js?v=2026-08-09-woodpecker-event-55';
-import GameHud from '../ui/GameHud.js';
+import WorldLayer from '../systems/WorldLayer.js?v=2026-08-26-seed-reward-sound-58';
+import GameHud from '../ui/GameHud.js?v=2026-08-26-seed-reward-sound-58';
 
 const Phaser = window.Phaser;
 
@@ -19,6 +19,8 @@ export default class GameScene extends Phaser.Scene {
 
   create(data = {}) {
     const journeyState = this.getJourneyState(data);
+    const seedCount = this.getSeedCount(journeyState);
+    const seedReward = this.getSeedReward(journeyState);
 
     this.worldLayer = new WorldLayer(this);
 
@@ -30,13 +32,14 @@ export default class GameScene extends Phaser.Scene {
     this.keyboardController = new KeyboardController(this, this.formation);
     this.journeyManager = new JourneyManager(this, this.formation, this.worldLayer, {
       currentStopIndex: journeyState?.currentStopIndex,
+      seedCount,
     });
     this.environmentalEventManager = new EnvironmentalEventManager(this, this.formation, this.worldLayer, {
       currentStopIndex: journeyState?.currentStopIndex,
     });
     this.cameraFollowPoint = new CameraFollowPoint(this, [this.girlOne, this.girlTwo], this.worldLayer.bounds);
     this.footstepSoundController = new FootstepSoundController(this, this.formation);
-    this.hud = new GameHud(this, this.girlOne, this.girlTwo);
+    this.hud = new GameHud(this, this.girlOne, this.girlTwo, { seedCount, seedReward });
 
     this.prepareFutureLearningEvents();
     this.cameras.main.fadeIn(350, 10, 24, 18);
@@ -45,6 +48,18 @@ export default class GameScene extends Phaser.Scene {
   getJourneyState(data) {
     // Nova partida sempre volta ao inicio da Alameda, mesmo apos os creditos.
     return data.resetJourney ? null : data.journeyState;
+  }
+
+  getSeedCount(journeyState) {
+    return Number.isFinite(journeyState?.seedCount) ? journeyState.seedCount : 0;
+  }
+
+  getSeedReward(journeyState) {
+    if (!journeyState?.seedRewardEarned) {
+      return 0;
+    }
+
+    return Number.isFinite(journeyState.seedRewardAmount) ? journeyState.seedRewardAmount : 1;
   }
 
   update() {

@@ -1,14 +1,15 @@
-import { PLAYER_DIRECTIONS, PLAYER_STARTS, SCENE_KEYS } from '../config.js?v=2026-08-26-seed-reward-sound-58';
+import { PLAYER_DIRECTIONS, PLAYER_STARTS, SCENE_KEYS } from '../config.js?v=2026-08-30-phase-map-65';
 import GirlOne from '../entities/GirlOne.js';
 import GirlTwo from '../entities/GirlTwo.js';
 import KeyboardController from '../input/KeyboardController.js';
 import CameraFollowPoint from '../systems/CameraFollowPoint.js';
-import EnvironmentalEventManager from '../systems/EnvironmentalEventManager.js?v=2026-08-26-seed-reward-sound-58';
-import FootstepSoundController from '../systems/FootstepSoundController.js?v=2026-08-26-seed-reward-sound-58';
-import JourneyManager from '../systems/JourneyManager.js?v=2026-08-26-seed-reward-sound-58';
+import EnvironmentalEventManager from '../systems/EnvironmentalEventManager.js?v=2026-08-30-phase-map-65';
+import FootstepSoundController from '../systems/FootstepSoundController.js?v=2026-08-30-phase-map-65';
+import JourneyManager from '../systems/JourneyManager.js?v=2026-08-30-phase-map-65';
+import PhaseNavigation from '../systems/PhaseNavigation.js?v=2026-08-30-phase-map-65';
 import SideBySideFormation from '../systems/SideBySideFormation.js';
-import WorldLayer from '../systems/WorldLayer.js?v=2026-08-26-seed-reward-sound-58';
-import GameHud from '../ui/GameHud.js?v=2026-08-26-seed-reward-sound-58';
+import WorldLayer from '../systems/WorldLayer.js?v=2026-08-30-phase-map-65';
+import GameHud from '../ui/GameHud.js?v=2026-08-30-phase-map-65';
 
 const Phaser = window.Phaser;
 
@@ -39,7 +40,12 @@ export default class GameScene extends Phaser.Scene {
     });
     this.cameraFollowPoint = new CameraFollowPoint(this, [this.girlOne, this.girlTwo], this.worldLayer.bounds);
     this.footstepSoundController = new FootstepSoundController(this, this.formation);
-    this.hud = new GameHud(this, this.girlOne, this.girlTwo, { seedCount, seedReward });
+    this.hud = new GameHud(this, this.girlOne, this.girlTwo, {
+      seedCount,
+      seedReward,
+      currentStopIndex: journeyState?.currentStopIndex ?? 0,
+      onPhaseSelect: (phase) => this.jumpToPhase(phase),
+    });
 
     this.prepareFutureLearningEvents();
     this.cameras.main.fadeIn(350, 10, 24, 18);
@@ -80,6 +86,25 @@ export default class GameScene extends Phaser.Scene {
     }
 
     this.formation.setCenter(journeyState.resumeCenterX, PLAYER_STARTS.girlOne.y, PLAYER_DIRECTIONS.right);
+  }
+
+  jumpToPhase(phase) {
+    if (this.journeyManager.isTransitioning) {
+      return;
+    }
+
+    this.journeyManager.isTransitioning = true;
+    this.formation.stop();
+    const journeyState = PhaseNavigation.createJourneyState(this, phase, this.journeyManager.seedCount);
+
+    this.cameras.main.fadeOut(350, 10, 24, 18);
+    this.cameras.main.once(Phaser.Cameras.Scene2D.Events.FADE_OUT_COMPLETE, () => {
+      this.scene.start(phase.sceneKey, {
+        returnScene: SCENE_KEYS.game,
+        title: phase.title,
+        journeyState,
+      });
+    });
   }
 
   prepareFutureLearningEvents() {

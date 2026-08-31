@@ -1,4 +1,4 @@
-import { ASSET_KEYS, FOOTSTEP_AUDIO } from '../config.js?v=2026-08-26-seed-reward-sound-58';
+import { ASSET_KEYS, FOOTSTEP_AUDIO } from '../config.js?v=2026-08-30-phase-map-65';
 
 const Phaser = window.Phaser;
 

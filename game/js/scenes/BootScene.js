@@ -7,7 +7,7 @@ import {
   ROUTE_CHUNKS,
   SCENE_KEYS,
   withAssetVersion,
-} from '../config.js?v=2026-08-26-seed-reward-sound-58';
+} from '../config.js?v=2026-08-30-phase-map-65';
 
 const Phaser = window.Phaser;
 
@@ -21,11 +21,15 @@ export default class BootScene extends Phaser.Scene {
     this.load.image(ASSET_KEYS.bromeliadHouse, ASSET_PATHS.bromeliadHouse);
     this.load.image(ASSET_KEYS.bromeliadSensoryTransition, ASSET_PATHS.bromeliadSensoryTransition);
     this.load.image(ASSET_KEYS.bromeliadTransition, ASSET_PATHS.bromeliadTransition);
+    this.load.image(ASSET_KEYS.carnivorousGreenhouse, ASSET_PATHS.carnivorousGreenhouse);
+    this.load.image(ASSET_KEYS.carnivorousPlantClosed, ASSET_PATHS.carnivorousPlantClosed);
+    this.load.image(ASSET_KEYS.carnivorousPlantOpen, ASSET_PATHS.carnivorousPlantOpen);
     this.load.image(ASSET_KEYS.capuchinMonkeyRunner, ASSET_PATHS.capuchinMonkeyRunner);
     this.load.image(ASSET_KEYS.chafarizDasMusas, ASSET_PATHS.chafarizDasMusas);
     this.load.image(ASSET_KEYS.creditsBackground, ASSET_PATHS.creditsBackground);
     this.load.image(ASSET_KEYS.enbtTransition, ASSET_PATHS.enbtTransition);
     this.load.image(ASSET_KEYS.fishJump, ASSET_PATHS.fishJump);
+    this.load.image(ASSET_KEYS.greenhouseFly, ASSET_PATHS.greenhouseFly);
     this.load.image(ASSET_KEYS.greenhouses, ASSET_PATHS.greenhouses);
     this.load.image(ASSET_KEYS.herbarium, ASSET_PATHS.herbarium);
     this.load.image(ASSET_KEYS.herbariumTransition, ASSET_PATHS.herbariumTransition);

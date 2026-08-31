@@ -1,7 +1,7 @@
-import CapuchinRunEvent from './CapuchinRunEvent.js?v=2026-08-26-seed-reward-sound-58';
-import FishJumpEvent from './FishJumpEvent.js?v=2026-08-26-seed-reward-sound-58';
-import ToucanFlybyEvent from './ToucanFlybyEvent.js?v=2026-08-26-seed-reward-sound-58';
-import WoodpeckerPeckEvent from './WoodpeckerPeckEvent.js?v=2026-08-26-seed-reward-sound-58';
+import CapuchinRunEvent from './CapuchinRunEvent.js?v=2026-08-30-phase-map-65';
+import FishJumpEvent from './FishJumpEvent.js?v=2026-08-30-phase-map-65';
+import ToucanFlybyEvent from './ToucanFlybyEvent.js?v=2026-08-30-phase-map-65';
+import WoodpeckerPeckEvent from './WoodpeckerPeckEvent.js?v=2026-08-30-phase-map-65';
 
 const EVENT_TYPES = Object.freeze({
   capuchinRun: 'capuchinRun',

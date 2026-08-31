@@ -1,5 +1,5 @@
-import { GAME_WIDTH, PLAYER_ANIMATION_STATES } from '../config.js?v=2026-08-26-seed-reward-sound-58';
-import SpeechBubble from '../ui/SpeechBubble.js?v=2026-08-26-seed-reward-sound-58';
+import { GAME_WIDTH, PLAYER_ANIMATION_STATES } from '../config.js?v=2026-08-30-phase-map-65';
+import SpeechBubble from '../ui/SpeechBubble.js?v=2026-08-30-phase-map-65';
 
 const DEFAULT_FLIGHT = Object.freeze({
   duration: 4800,

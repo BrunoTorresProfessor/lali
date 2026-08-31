@@ -1,4 +1,12 @@
-import { ENVIRONMENT_VISIT_DURATION, GAME_HEIGHT, GAME_WIDTH, PHASE_SEED_REWARD } from '../config.js?v=2026-08-26-seed-reward-sound-58';
+import {
+  ENVIRONMENT_VISIT_DURATION,
+  GAME_HEIGHT,
+  GAME_WIDTH,
+  PHASE_SEED_REWARD,
+  SCENE_KEYS,
+} from '../config.js?v=2026-08-30-phase-map-65';
+import PhaseNavigation from '../systems/PhaseNavigation.js?v=2026-08-30-phase-map-65';
+import PhaseMap, { PHASE_MAP_TOP } from '../ui/PhaseMap.js?v=2026-08-30-phase-map-65';
 
 const Phaser = window.Phaser;
 
@@ -6,9 +14,11 @@ export default class EnvironmentScene extends Phaser.Scene {
   constructor(sceneKey, backgroundKey, title, options = {}) {
     super(sceneKey);
 
+    this.sceneKey = sceneKey;
     this.backgroundKey = backgroundKey;
     this.title = title;
     this.ambientAudio = options.ambientAudio;
+    this.instruction = options.instruction ?? 'Clique ou pressione ESPACO para continuar';
   }
 
   create(data = {}) {
@@ -19,12 +29,25 @@ export default class EnvironmentScene extends Phaser.Scene {
 
     this.createBackground();
     this.createTitle();
+    this.createPhaseMap();
     this.playAmbientAudio();
     this.cameras.main.fadeIn(450, 10, 24, 18);
 
     this.time.delayedCall(ENVIRONMENT_VISIT_DURATION, () => this.returnToTrail());
-    this.input.once('pointerdown', () => this.returnToTrail());
+    this.input.on('pointerdown', this.handleContinuePointer, this);
+    this.events.once(Phaser.Scenes.Events.SHUTDOWN, () => {
+      this.input.off('pointerdown', this.handleContinuePointer, this);
+    });
     this.input.keyboard?.once('keydown-SPACE', () => this.returnToTrail());
+  }
+
+  handleContinuePointer(pointer) {
+    if (pointer.y >= PHASE_MAP_TOP) {
+      return;
+    }
+
+    this.input.off('pointerdown', this.handleContinuePointer, this);
+    this.returnToTrail();
   }
 
   createBackground() {
@@ -35,9 +58,9 @@ export default class EnvironmentScene extends Phaser.Scene {
   }
 
   createTitle() {
-    this.add.rectangle(GAME_WIDTH / 2, GAME_HEIGHT - 52, GAME_WIDTH, 104, 0x10271c, 0.42).setDepth(5);
+    this.add.rectangle(GAME_WIDTH / 2, GAME_HEIGHT - 130, GAME_WIDTH, 90, 0x10271c, 0.42).setDepth(5);
     this.add
-      .text(GAME_WIDTH / 2, GAME_HEIGHT - 68, this.activeTitle, {
+      .text(GAME_WIDTH / 2, GAME_HEIGHT - 148, this.activeTitle, {
         align: 'center',
         color: '#ffffff',
         fontFamily: 'Arial, Helvetica, sans-serif',
@@ -49,7 +72,7 @@ export default class EnvironmentScene extends Phaser.Scene {
       .setOrigin(0.5)
       .setDepth(10);
     this.add
-      .text(GAME_WIDTH / 2, GAME_HEIGHT - 28, 'Clique ou pressione ESPACO para continuar', {
+      .text(GAME_WIDTH / 2, GAME_HEIGHT - 109, this.instruction, {
         align: 'center',
         color: '#f7ffe8',
         fontFamily: 'Arial, Helvetica, sans-serif',
@@ -59,6 +82,34 @@ export default class EnvironmentScene extends Phaser.Scene {
       })
       .setOrigin(0.5)
       .setDepth(10);
+  }
+
+  createPhaseMap() {
+    this.phaseMap = new PhaseMap(this, {
+      activeSceneKey: this.sceneKey,
+      currentStopIndex: this.journeyState?.currentStopIndex ?? 0,
+      onSelect: (phase) => this.jumpToPhase(phase),
+    });
+  }
+
+  jumpToPhase(phase) {
+    if (this.hasReturned) {
+      return;
+    }
+
+    this.hasReturned = true;
+    const seedCount = Number.isFinite(this.journeyState?.seedCount) ? this.journeyState.seedCount : 0;
+    const journeyState = PhaseNavigation.createJourneyState(this, phase, seedCount);
+
+    this.stopAmbientAudio();
+    this.cameras.main.fadeOut(350, 10, 24, 18);
+    this.cameras.main.once(Phaser.Cameras.Scene2D.Events.FADE_OUT_COMPLETE, () => {
+      this.scene.start(phase.sceneKey, {
+        returnScene: this.returnScene ?? SCENE_KEYS.game,
+        title: phase.title,
+        journeyState,
+      });
+    });
   }
 
   playAmbientAudio() {

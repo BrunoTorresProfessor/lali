@@ -1,4 +1,4 @@
-import { SCENE_KEYS } from '../config.js?v=2026-08-26-seed-reward-sound-58';
+import { SCENE_KEYS } from '../config.js?v=2026-08-30-phase-map-65';
 
 const Phaser = window.Phaser;
 

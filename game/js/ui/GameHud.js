@@ -1,4 +1,5 @@
-import { ASSET_KEYS, GAME_WIDTH } from '../config.js?v=2026-08-26-seed-reward-sound-58';
+import { ASSET_KEYS, GAME_WIDTH } from '../config.js?v=2026-08-30-phase-map-65';
+import PhaseMap from './PhaseMap.js?v=2026-08-30-phase-map-65';
 
 const Phaser = window.Phaser;
 
@@ -13,6 +14,10 @@ export default class GameHud {
     this.fpsText = this.createFpsText();
     this.seedCounter = this.createSeedCounter();
     this.positionText = this.createPositionText();
+    this.phaseMap = new PhaseMap(this.scene, {
+      currentStopIndex: options.currentStopIndex,
+      onSelect: options.onPhaseSelect,
+    });
 
     this.update();
     this.showSeedRewardIfNeeded();
@@ -54,7 +59,7 @@ export default class GameHud {
       .rectangle(-48, 16, 96, 34, 0x10271c, 0.52)
       .setOrigin(0.5)
       .setStrokeStyle(2, 0xf2d278, 0.55);
-    const icon = this.scene.add.image(-76, 16, ASSET_KEYS.seedIcon).setDisplaySize(27, 27);
+    const icon = this.scene.add.image(-76, 16, ASSET_KEYS.seedIcon).setDisplaySize(31, 31);
     const valueText = this.scene.add
       .text(-52, 16, String(this.seedCount), {
         color: '#ffffff',
@@ -140,18 +145,18 @@ export default class GameHud {
   }
 
   showSeedRewardToast(amount) {
-    const seedLabel = amount === 1 ? 'semente' : 'sementes';
-    const container = this.scene.add.container(GAME_WIDTH - 116, 92).setDepth(110).setScrollFactor(0).setAlpha(0);
+    const rewardLabel = amount === 1 ? 'muda de pau-brasil' : 'mudas de pau-brasil';
+    const container = this.scene.add.container(GAME_WIDTH - 170, 164).setDepth(110).setScrollFactor(0).setAlpha(0);
     const background = this.scene.add
-      .rectangle(0, 0, 164, 38, 0x143220, 0.74)
+      .rectangle(0, 0, 286, 38, 0x143220, 0.74)
       .setOrigin(0.5)
       .setStrokeStyle(2, 0xf2d278, 0.5);
-    const icon = this.scene.add.image(-61, 0, ASSET_KEYS.seedIcon).setDisplaySize(24, 24);
+    const icon = this.scene.add.image(-121, 0, ASSET_KEYS.seedIcon).setDisplaySize(28, 28);
     const text = this.scene.add
-      .text(-36, 0, `+${amount} ${seedLabel}`, {
+      .text(-94, 0, `+${amount} ${rewardLabel}`, {
         color: '#fff8cf',
         fontFamily: 'Arial, Helvetica, sans-serif',
-        fontSize: '18px',
+        fontSize: '17px',
         fontStyle: 'bold',
         stroke: '#14321f',
         strokeThickness: 3,
@@ -163,7 +168,7 @@ export default class GameHud {
     this.scene.tweens.add({
       targets: container,
       alpha: 1,
-      y: 82,
+      y: 150,
       duration: 220,
       ease: 'Sine.easeOut',
       onComplete: () => {
@@ -171,7 +176,7 @@ export default class GameHud {
           this.scene.tweens.add({
             targets: container,
             alpha: 0,
-            y: 68,
+            y: 136,
             duration: 320,
             ease: 'Sine.easeIn',
             onComplete: () => container.destroy(),

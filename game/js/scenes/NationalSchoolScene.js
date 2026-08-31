@@ -1,5 +1,5 @@
-import { ASSET_KEYS, SCENE_KEYS } from '../config.js?v=2026-08-26-seed-reward-sound-58';
-import EnvironmentScene from './EnvironmentScene.js?v=2026-08-26-seed-reward-sound-58';
+import { ASSET_KEYS, SCENE_KEYS } from '../config.js?v=2026-08-30-phase-map-65';
+import EnvironmentScene from './EnvironmentScene.js?v=2026-08-30-phase-map-65';
 
 const Phaser = window.Phaser;
 

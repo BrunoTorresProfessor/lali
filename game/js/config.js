@@ -3,7 +3,7 @@ const Phaser = window.Phaser;
 export const GAME_WIDTH = 1280;
 export const GAME_HEIGHT = 720;
 export const PLAYER_SPEED = 180;
-export const ASSET_VERSION = '2026-08-26-seed-reward-sound-58';
+export const ASSET_VERSION = '2026-08-30-phase-map-65';
 export const PHASE_SEED_REWARD = 1;
 
 export const withAssetVersion = (path) => `${path}?v=${ASSET_VERSION}`;
@@ -13,6 +13,7 @@ export const SCENE_KEYS = Object.freeze({
   title: 'TitleScene',
   game: 'GameScene',
   bromeliadHouse: 'BromeliadHouseScene',
+  carnivorousGreenhouse: 'CarnivorousGreenhouseScene',
   chafarizDasMusas: 'ChafarizDasMusasScene',
   credits: 'CreditsScene',
   greenhouses: 'GreenhousesScene',
@@ -31,6 +32,9 @@ export const ASSET_KEYS = Object.freeze({
   bromeliadHouse: 'bromeliario',
   bromeliadTransition: 'transicao-orquidario-bromeliario',
   bromeliadSensoryTransition: 'transicao-bromeliario-jardim-sensorial',
+  carnivorousGreenhouse: 'estufa-plantas-carnivoras',
+  carnivorousPlantClosed: 'venus-flytrap-closed',
+  carnivorousPlantOpen: 'venus-flytrap-open',
   capuchinMonkeysChatter: 'capuchin-monkeys-chatter',
   capuchinMonkeyRunner: 'capuchin-monkey-runner',
   chafarizDasMusas: 'chafariz-das-musas',
@@ -41,6 +45,7 @@ export const ASSET_KEYS = Object.freeze({
   herbariumTransition: 'transicao-centro-herbario',
   footstepSoftA: 'footstep-soft-a',
   footstepSoftB: 'footstep-soft-b',
+  greenhouseFly: 'greenhouse-fly',
   fishJump: 'fish-jump',
   fishWaterSplash: 'fish-water-splash',
   lake: 'lago-frei-leandro',
@@ -74,6 +79,9 @@ export const ASSET_PATHS = Object.freeze({
   bromeliadHouse: 'assets/cartoon/bromeliario-unificado.png',
   bromeliadSensoryTransition: 'assets/cartoon/transicao-bromeliario-jardim-sensorial.png',
   bromeliadTransition: 'assets/cartoon/transicao-orquidario-bromeliario.png',
+  carnivorousGreenhouse: withAssetVersion('assets/cartoon/estufa-plantas-carnivoras.png'),
+  carnivorousPlantClosed: withAssetVersion('assets/cartoon/venus-flytrap-closed.png'),
+  carnivorousPlantOpen: withAssetVersion('assets/cartoon/venus-flytrap-open.png'),
   capuchinMonkeysChatter: withAssetVersion('assets/audio/capuchin-monkeys-chatter.wav'),
   capuchinMonkeyRunner: withAssetVersion('assets/cartoon/capuchin-monkey-run.png'),
   chafarizDasMusas: 'assets/cartoon/chafariz-das-musas-unificado.png',
@@ -84,6 +92,7 @@ export const ASSET_PATHS = Object.freeze({
   herbariumTransition: 'assets/cartoon/transicao-centro-herbario.png',
   footstepSoftA: withAssetVersion('assets/audio/footstep-soft-a.wav'),
   footstepSoftB: withAssetVersion('assets/audio/footstep-soft-b.wav'),
+  greenhouseFly: withAssetVersion('assets/cartoon/greenhouse-fly.png'),
   fishJump: withAssetVersion('assets/cartoon/fish-jump.png'),
   fishWaterSplash: withAssetVersion('assets/audio/fish-water-splash.wav'),
   lake: 'assets/cartoon/lago-frei-leandro-unificado.png',
@@ -119,10 +128,11 @@ export const ROUTE_CHUNK_COUNT = 19;
 export const ROUTE_CHUNKS = Object.freeze(
   Array.from({ length: ROUTE_CHUNK_COUNT }, (_, index) => {
     const id = String(index + 1).padStart(3, '0');
+    const fileName = index === 5 ? 'route-chunk-006-v2.png' : `route-chunk-${id}.png`;
 
     return Object.freeze({
       key: `route-chunk-${id}`,
-      path: withAssetVersion(`assets/cartoon/route-continuous/route-chunk-${id}.png`),
+      path: withAssetVersion(`assets/cartoon/route-continuous/${fileName}`),
     });
   }),
 );

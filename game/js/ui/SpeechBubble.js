@@ -1,4 +1,4 @@
-import { GAME_HEIGHT, GAME_WIDTH } from '../config.js?v=2026-08-30-phase-map-65';
+import { GAME_HEIGHT, GAME_WIDTH } from '../config.js?v=2026-09-01-monkey-guidance-70';
 
 const Phaser = window.Phaser;
 
@@ -12,6 +12,7 @@ export default class SpeechBubble {
     this.container = this.createContainer();
 
     this.scene.events.on(Phaser.Scenes.Events.UPDATE, this.update, this);
+    this.scene.events.once(Phaser.Scenes.Events.SHUTDOWN, this.destroy, this);
     this.scene.time.delayedCall(this.duration, () => this.destroy());
     this.update();
   }
@@ -22,12 +23,18 @@ export default class SpeechBubble {
     const speakerText = this.createSpeakerText();
     const contentWidth = Math.max(messageText.width, speakerText?.width ?? 0);
     const bubbleWidth = Math.max(360, contentWidth + 42);
-    const bubbleHeight = messageText.height + (speakerText ? speakerText.height + 12 : 0) + 34;
+    const verticalPadding = 17;
+    const speakerGap = speakerText ? 12 : 0;
+    const bubbleHeight =
+      messageText.height + (speakerText?.height ?? 0) + speakerGap + verticalPadding * 2;
     const background = this.createBackground(bubbleWidth, bubbleHeight);
 
     if (speakerText) {
-      speakerText.setPosition(0, -bubbleHeight / 2 + 24);
-      messageText.setPosition(0, -bubbleHeight / 2 + speakerText.height + 42);
+      speakerText.setPosition(0, -bubbleHeight / 2 + verticalPadding + speakerText.height / 2);
+      messageText.setPosition(
+        0,
+        speakerText.y + speakerText.height / 2 + speakerGap + messageText.height / 2,
+      );
     } else {
       messageText.setPosition(0, 0);
     }
@@ -106,6 +113,7 @@ export default class SpeechBubble {
 
   destroy() {
     this.scene.events.off(Phaser.Scenes.Events.UPDATE, this.update, this);
+    this.scene.events.off(Phaser.Scenes.Events.SHUTDOWN, this.destroy, this);
     this.container?.destroy();
     this.container = null;
   }

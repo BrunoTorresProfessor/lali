@@ -1,4 +1,4 @@
-import { ASSET_KEYS } from '../config.js?v=2026-08-30-phase-map-65';
+import { ASSET_KEYS } from '../config.js?v=2026-09-01-monkey-guidance-70';
 
 const Phaser = window.Phaser;
 

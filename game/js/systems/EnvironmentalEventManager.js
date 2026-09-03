@@ -1,7 +1,7 @@
-import CapuchinRunEvent from './CapuchinRunEvent.js?v=2026-08-30-phase-map-65';
-import FishJumpEvent from './FishJumpEvent.js?v=2026-08-30-phase-map-65';
-import ToucanFlybyEvent from './ToucanFlybyEvent.js?v=2026-08-30-phase-map-65';
-import WoodpeckerPeckEvent from './WoodpeckerPeckEvent.js?v=2026-08-30-phase-map-65';
+import CapuchinRunEvent from './CapuchinRunEvent.js?v=2026-09-01-monkey-guidance-70';
+import FishJumpEvent from './FishJumpEvent.js?v=2026-09-01-monkey-guidance-70';
+import ToucanFlybyEvent from './ToucanFlybyEvent.js?v=2026-09-01-monkey-guidance-70';
+import WoodpeckerPeckEvent from './WoodpeckerPeckEvent.js?v=2026-09-01-monkey-guidance-70';
 
 const EVENT_TYPES = Object.freeze({
   capuchinRun: 'capuchinRun',

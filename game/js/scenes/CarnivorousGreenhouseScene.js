@@ -5,10 +5,10 @@ import {
   PLAYER_ANIMATION_STATES,
   PLAYER_CHARACTER_ASSETS,
   SCENE_KEYS,
-} from '../config.js?v=2026-08-30-phase-map-65';
+} from '../config.js?v=2026-09-01-monkey-guidance-70';
 import PlayerAnimationRegistry from '../animation/PlayerAnimationRegistry.js';
-import CarnivorousPlantEvent from '../systems/CarnivorousPlantEvent.js?v=2026-08-30-phase-map-65';
-import EnvironmentScene from './EnvironmentScene.js?v=2026-08-30-phase-map-65';
+import CarnivorousPlantEvent from '../systems/CarnivorousPlantEvent.js?v=2026-09-01-monkey-guidance-70';
+import EnvironmentScene from './EnvironmentScene.js?v=2026-09-01-monkey-guidance-70';
 
 const Phaser = window.Phaser;
 

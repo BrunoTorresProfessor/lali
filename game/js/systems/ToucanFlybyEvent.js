@@ -1,5 +1,5 @@
-import { GAME_WIDTH, PLAYER_ANIMATION_STATES } from '../config.js?v=2026-08-30-phase-map-65';
-import SpeechBubble from '../ui/SpeechBubble.js?v=2026-08-30-phase-map-65';
+import { GAME_WIDTH, PLAYER_ANIMATION_STATES } from '../config.js?v=2026-09-01-monkey-guidance-70';
+import SpeechBubble from '../ui/SpeechBubble.js?v=2026-09-01-monkey-guidance-70';
 
 const DEFAULT_FLIGHT = Object.freeze({
   duration: 4800,

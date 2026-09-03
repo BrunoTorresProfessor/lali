@@ -7,7 +7,7 @@ import {
   ROUTE_CHUNKS,
   SCENE_KEYS,
   withAssetVersion,
-} from '../config.js?v=2026-08-30-phase-map-65';
+} from '../config.js?v=2026-09-01-monkey-guidance-70';
 
 const Phaser = window.Phaser;
 

@@ -1,4 +1,4 @@
-import { ASSET_KEYS, GAME_HEIGHT, GAME_WIDTH, SCENE_KEYS } from '../config.js?v=2026-08-30-phase-map-65';
+import { ASSET_KEYS, GAME_HEIGHT, GAME_WIDTH, SCENE_KEYS } from '../config.js?v=2026-09-01-monkey-guidance-70';
 
 const Phaser = window.Phaser;
 
@@ -129,8 +129,17 @@ export default class PhaseMap {
     const focusX = sourceImage.width * (phase.focusX ?? 0.5);
     const cropX = Phaser.Math.Clamp(focusX - cropSize / 2, 0, sourceImage.width - cropSize);
     const cropY = Math.max(0, (sourceImage.height - cropSize) / 2);
+    const thumbnailKey = `phase-map-thumbnail-${phase.id}`;
 
-    icon.setCrop(cropX, cropY, cropSize, cropSize).setDisplaySize(40, 40);
+    if (!this.scene.textures.exists(thumbnailKey)) {
+      const thumbnail = this.scene.textures.createCanvas(thumbnailKey, 40, 40);
+      const context = thumbnail.getContext();
+
+      context.drawImage(sourceImage, cropX, cropY, cropSize, cropSize, 0, 0, 40, 40);
+      thumbnail.refresh();
+    }
+
+    icon.setTexture(thumbnailKey).setDisplaySize(40, 40);
   }
 
   createTooltip() {

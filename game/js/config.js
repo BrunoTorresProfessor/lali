@@ -3,7 +3,7 @@ const Phaser = window.Phaser;
 export const GAME_WIDTH = 1280;
 export const GAME_HEIGHT = 720;
 export const PLAYER_SPEED = 180;
-export const ASSET_VERSION = '2026-08-30-phase-map-65';
+export const ASSET_VERSION = '2026-09-01-monkey-guidance-70';
 export const PHASE_SEED_REWARD = 1;
 
 export const withAssetVersion = (path) => `${path}?v=${ASSET_VERSION}`;

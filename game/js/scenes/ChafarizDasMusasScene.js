@@ -3,10 +3,10 @@ import {
   PLAYER_ANIMATION_STATES,
   PLAYER_CHARACTER_ASSETS,
   SCENE_KEYS,
-} from '../config.js?v=2026-09-01-monkey-guidance-70';
+} from '../config.js?v=2026-09-09-cactario-trilha-72';
 import PlayerAnimationRegistry from '../animation/PlayerAnimationRegistry.js';
-import SpeechBubble from '../ui/SpeechBubble.js?v=2026-09-01-monkey-guidance-70';
-import EnvironmentScene from './EnvironmentScene.js?v=2026-09-01-monkey-guidance-70';
+import SpeechBubble from '../ui/SpeechBubble.js?v=2026-09-09-cactario-trilha-72';
+import EnvironmentScene from './EnvironmentScene.js?v=2026-09-09-cactario-trilha-72';
 
 const MONKEY_GUIDANCE = 'Nunca alimente os macacos.';
 

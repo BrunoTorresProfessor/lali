@@ -1,4 +1,4 @@
-import { GAME_HEIGHT, GAME_WIDTH } from '../config.js?v=2026-09-01-monkey-guidance-70';
+import { GAME_HEIGHT, GAME_WIDTH } from '../config.js?v=2026-09-09-cactario-trilha-72';
 
 const Phaser = window.Phaser;
 

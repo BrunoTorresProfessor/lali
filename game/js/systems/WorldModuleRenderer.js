@@ -84,15 +84,31 @@ export default class WorldModuleRenderer {
 
   renderLayer(module, layerConfig) {
     const sourceImage = this.getSourceImage(layerConfig.assetKey);
-    const scale = this.getLayerScale(sourceImage, module.width, layerConfig.fit ?? DEFAULT_LAYER_FIT);
-    const displayWidth = sourceImage.width * scale;
-    const displayHeight = sourceImage.height * scale;
+    const sourceRect = layerConfig.sourceRect;
+    const sourceSize = sourceRect ?? sourceImage;
+    const scale = this.getLayerScale(sourceSize, module.width, layerConfig.fit ?? DEFAULT_LAYER_FIT);
+    const displayWidth = sourceSize.width * scale;
+    const displayHeight = sourceSize.height * scale;
     const x = module.startX + this.getAlignedOffset(layerConfig.alignX, module.width, displayWidth);
     const y = this.getAlignedOffset(layerConfig.alignY ?? 'start', GAME_HEIGHT, displayHeight);
 
-    // Usa a textura inteira do modulo. Recortes e mascaras ficam fora do runtime.
+    // Adjacent stops can share one continuous painting without inserting a
+    // standalone environment image into the trail or stretching the scenery.
+    let frame;
+    if (sourceRect) {
+      const { x: sourceX, y: sourceY, width, height } = sourceRect;
+      if (![sourceX, sourceY, width, height].every(Number.isFinite)
+        || sourceX < 0 || sourceY < 0 || width <= 0 || height <= 0
+        || sourceX + width > sourceImage.width || sourceY + height > sourceImage.height) {
+        throw new Error(`Invalid sourceRect for world layer "${layerConfig.assetKey}".`);
+      }
+      frame = `world-region-${sourceX}-${sourceY}-${width}-${height}`;
+      const texture = this.scene.textures.get(layerConfig.assetKey);
+      if (!texture.has(frame)) texture.add(frame, 0, sourceX, sourceY, width, height);
+    }
+
     this.scene.add
-      .image(x, y, layerConfig.assetKey)
+      .image(x, y, layerConfig.assetKey, frame)
       .setOrigin(0, 0)
       .setScale(scale)
       .setDepth(layerConfig.depth ?? DEFAULT_LAYER_DEPTH);

@@ -3,7 +3,7 @@ const Phaser = window.Phaser;
 export const GAME_WIDTH = 1280;
 export const GAME_HEIGHT = 720;
 export const PLAYER_SPEED = 180;
-export const ASSET_VERSION = '2026-09-01-monkey-guidance-70';
+export const ASSET_VERSION = '2026-09-09-cactario-trilha-72';
 export const PHASE_SEED_REWARD = 1;
 
 export const withAssetVersion = (path) => `${path}?v=${ASSET_VERSION}`;
@@ -14,6 +14,7 @@ export const SCENE_KEYS = Object.freeze({
   game: 'GameScene',
   bromeliadHouse: 'BromeliadHouseScene',
   carnivorousGreenhouse: 'CarnivorousGreenhouseScene',
+  cactusGarden: 'CactusGardenScene',
   chafarizDasMusas: 'ChafarizDasMusasScene',
   credits: 'CreditsScene',
   greenhouses: 'GreenhousesScene',
@@ -33,6 +34,12 @@ export const ASSET_KEYS = Object.freeze({
   bromeliadTransition: 'transicao-orquidario-bromeliario',
   bromeliadSensoryTransition: 'transicao-bromeliario-jardim-sensorial',
   carnivorousGreenhouse: 'estufa-plantas-carnivoras',
+  cactusGarden: 'cactario-lago',
+  cactusOverview: 'cactario-vista-geral',
+  cactusGreenhouses: 'cactario-estufas',
+  cactusGiants: 'cactario-gigantes',
+  cactusSucculents: 'cactario-suculentas',
+  thiago: 'thiago-cartoon',
   carnivorousPlantClosed: 'venus-flytrap-closed',
   carnivorousPlantOpen: 'venus-flytrap-open',
   capuchinMonkeysChatter: 'capuchin-monkeys-chatter',
@@ -80,6 +87,12 @@ export const ASSET_PATHS = Object.freeze({
   bromeliadSensoryTransition: 'assets/cartoon/transicao-bromeliario-jardim-sensorial.png',
   bromeliadTransition: 'assets/cartoon/transicao-orquidario-bromeliario.png',
   carnivorousGreenhouse: withAssetVersion('assets/cartoon/estufa-plantas-carnivoras.png'),
+  cactusGarden: withAssetVersion('assets/cartoon/cactario-lago.png'),
+  cactusOverview: withAssetVersion('assets/cartoon/cactario-vista-geral.png'),
+  cactusGreenhouses: withAssetVersion('assets/cartoon/cactario-estufas.png'),
+  cactusGiants: withAssetVersion('assets/cartoon/cactario-gigantes.png'),
+  cactusSucculents: withAssetVersion('assets/cartoon/cactario-suculentas.png'),
+  thiago: withAssetVersion('assets/cartoon/thiago-cartoon.png'),
   carnivorousPlantClosed: withAssetVersion('assets/cartoon/venus-flytrap-closed.png'),
   carnivorousPlantOpen: withAssetVersion('assets/cartoon/venus-flytrap-open.png'),
   capuchinMonkeysChatter: withAssetVersion('assets/audio/capuchin-monkeys-chatter.wav'),

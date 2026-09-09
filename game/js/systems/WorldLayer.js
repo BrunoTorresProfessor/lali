@@ -1,6 +1,6 @@
 import { JOURNEY_RETURN_OFFSET } from '../config.js';
 import WorldMapRepository from './WorldMapRepository.js';
-import WorldModuleRenderer from './WorldModuleRenderer.js';
+import WorldModuleRenderer from './WorldModuleRenderer.js?v=2026-09-09-cactario-trilha-72';
 
 export default class WorldLayer {
   constructor(scene) {

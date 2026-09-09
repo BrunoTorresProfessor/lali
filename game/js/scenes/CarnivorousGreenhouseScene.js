@@ -5,10 +5,10 @@ import {
   PLAYER_ANIMATION_STATES,
   PLAYER_CHARACTER_ASSETS,
   SCENE_KEYS,
-} from '../config.js?v=2026-09-01-monkey-guidance-70';
+} from '../config.js?v=2026-09-09-cactario-trilha-72';
 import PlayerAnimationRegistry from '../animation/PlayerAnimationRegistry.js';
-import CarnivorousPlantEvent from '../systems/CarnivorousPlantEvent.js?v=2026-09-01-monkey-guidance-70';
-import EnvironmentScene from './EnvironmentScene.js?v=2026-09-01-monkey-guidance-70';
+import CarnivorousPlantEvent from '../systems/CarnivorousPlantEvent.js?v=2026-09-09-cactario-trilha-72';
+import EnvironmentScene from './EnvironmentScene.js?v=2026-09-09-cactario-trilha-72';
 
 const Phaser = window.Phaser;
 

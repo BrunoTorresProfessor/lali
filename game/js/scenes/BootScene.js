@@ -7,7 +7,7 @@ import {
   ROUTE_CHUNKS,
   SCENE_KEYS,
   withAssetVersion,
-} from '../config.js?v=2026-09-01-monkey-guidance-70';
+} from '../config.js?v=2026-09-09-cactario-trilha-72';
 
 const Phaser = window.Phaser;
 
@@ -17,6 +17,9 @@ export default class BootScene extends Phaser.Scene {
   }
 
   preload() {
+    ['cactusGarden', 'cactusOverview', 'cactusGreenhouses', 'cactusGiants', 'cactusSucculents', 'thiago'].forEach((key) => {
+      this.load.image(ASSET_KEYS[key], ASSET_PATHS[key]);
+    });
     this.load.image(ASSET_KEYS.alameda, ASSET_PATHS.alameda);
     this.load.image(ASSET_KEYS.bromeliadHouse, ASSET_PATHS.bromeliadHouse);
     this.load.image(ASSET_KEYS.bromeliadSensoryTransition, ASSET_PATHS.bromeliadSensoryTransition);

@@ -1,4 +1,4 @@
-import { ASSET_KEYS, JOURNEY_RETURN_OFFSET } from '../config.js?v=2026-09-01-monkey-guidance-70';
+import { ASSET_KEYS, JOURNEY_RETURN_OFFSET } from '../config.js?v=2026-09-09-cactario-trilha-72';
 
 export default class PhaseNavigation {
   static createJourneyState(scene, phase, seedCount) {

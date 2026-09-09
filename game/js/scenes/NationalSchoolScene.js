@@ -1,5 +1,5 @@
-import { ASSET_KEYS, SCENE_KEYS } from '../config.js?v=2026-09-01-monkey-guidance-70';
-import EnvironmentScene from './EnvironmentScene.js?v=2026-09-01-monkey-guidance-70';
+import { ASSET_KEYS, SCENE_KEYS } from '../config.js?v=2026-09-09-cactario-trilha-72';
+import EnvironmentScene from './EnvironmentScene.js?v=2026-09-09-cactario-trilha-72';
 
 const Phaser = window.Phaser;
 

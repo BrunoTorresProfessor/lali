@@ -1,15 +1,15 @@
-import { PLAYER_DIRECTIONS, PLAYER_STARTS, SCENE_KEYS } from '../config.js?v=2026-09-01-monkey-guidance-70';
+import { PLAYER_DIRECTIONS, PLAYER_STARTS, SCENE_KEYS } from '../config.js?v=2026-09-09-cactario-trilha-72';
 import GirlOne from '../entities/GirlOne.js';
 import GirlTwo from '../entities/GirlTwo.js';
 import KeyboardController from '../input/KeyboardController.js';
 import CameraFollowPoint from '../systems/CameraFollowPoint.js';
-import EnvironmentalEventManager from '../systems/EnvironmentalEventManager.js?v=2026-09-01-monkey-guidance-70';
-import FootstepSoundController from '../systems/FootstepSoundController.js?v=2026-09-01-monkey-guidance-70';
-import JourneyManager from '../systems/JourneyManager.js?v=2026-09-01-monkey-guidance-70';
-import PhaseNavigation from '../systems/PhaseNavigation.js?v=2026-09-01-monkey-guidance-70';
+import EnvironmentalEventManager from '../systems/EnvironmentalEventManager.js?v=2026-09-09-cactario-trilha-72';
+import FootstepSoundController from '../systems/FootstepSoundController.js?v=2026-09-09-cactario-trilha-72';
+import JourneyManager from '../systems/JourneyManager.js?v=2026-09-09-cactario-trilha-72';
+import PhaseNavigation from '../systems/PhaseNavigation.js?v=2026-09-09-cactario-trilha-72';
 import SideBySideFormation from '../systems/SideBySideFormation.js';
-import WorldLayer from '../systems/WorldLayer.js?v=2026-09-01-monkey-guidance-70';
-import GameHud from '../ui/GameHud.js?v=2026-09-01-monkey-guidance-70';
+import WorldLayer from '../systems/WorldLayer.js?v=2026-09-09-cactario-trilha-72';
+import GameHud from '../ui/GameHud.js?v=2026-09-09-cactario-trilha-72';
 
 const Phaser = window.Phaser;
 

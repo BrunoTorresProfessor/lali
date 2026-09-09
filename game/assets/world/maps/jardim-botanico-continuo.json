@@ -385,20 +385,42 @@
       }
     },
     {
-      "id": "route_chunk_016",
+      "id": "cactus_garden",
       "type": "stop",
-      "width": 1280,
+      "width": 640,
       "layers": [
         {
           "depth": 0,
           "assetKey": "route-chunk-016",
-          "fit": "coverHeight"
+          "fit": "coverHeight",
+          "sourceRect": { "x": 0, "y": 0, "width": 640, "height": 720 }
+        }
+      ],
+      "scene": "CactusGardenScene",
+      "title": "Cactário",
+      "entryRatio": 0.75,
+      "resumeOffset": 0,
+      "learning": {
+        "objective": "Conhecer cactos e outras suculentas e sua capacidade de armazenar água.",
+        "npc": "thiago"
+      }
+    },
+    {
+      "id": "route_chunk_016",
+      "type": "stop",
+      "width": 640,
+      "layers": [
+        {
+          "depth": 0,
+          "assetKey": "route-chunk-016",
+          "fit": "coverHeight",
+          "sourceRect": { "x": 640, "y": 0, "width": 640, "height": 720 }
         }
       ],
       "sourceStopId": "herbarium_rb",
       "scene": "HerbariumScene",
       "title": "Herbário RB",
-      "entryRatio": 0.5287,
+      "entryRatio": 0.75,
       "resumeOffset": 360,
       "learning": {
         "objective": "Conhecer a importancia das colecoes botanicas.",

@@ -1,4 +1,4 @@
-import { ASSET_KEYS, GAME_HEIGHT, GAME_WIDTH, SCENE_KEYS } from '../config.js?v=2026-09-01-monkey-guidance-70';
+import { ASSET_KEYS, GAME_HEIGHT, GAME_WIDTH, SCENE_KEYS } from '../config.js?v=2026-09-09-cactario-trilha-72';
 
 const Phaser = window.Phaser;
 
@@ -11,6 +11,7 @@ const CREDIT_LINES = Object.freeze([
   { text: 'Luis Felipe Daibes de Andrade', size: '28px', color: '#ffffff' },
   { text: 'Paolo de Castro Martins Massoni', size: '28px', color: '#ffffff' },
   { text: 'Stella Mata de Lara Rocha', size: '28px', color: '#ffffff' },
+  { text: 'Thiago Favares Gonçalves', size: '28px', color: '#ffffff' },
   { text: 'Vivian Martins Lopes Torres', size: '28px', color: '#ffffff', gapAfter: 42 },
   { text: 'Agradecimentos especiais', size: '28px', color: '#ffe18a', gapAfter: 18 },
   { text: 'Jardim Botânico do Rio de Janeiro', size: '24px', color: '#ffffff', gapAfter: 42 },

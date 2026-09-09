@@ -1,4 +1,4 @@
-import { ASSET_KEYS, GAME_HEIGHT, GAME_WIDTH, SCENE_KEYS } from '../config.js?v=2026-09-01-monkey-guidance-70';
+import { ASSET_KEYS, GAME_HEIGHT, GAME_WIDTH, SCENE_KEYS } from '../config.js?v=2026-09-09-cactario-trilha-72';
 
 const Phaser = window.Phaser;
 
@@ -13,8 +13,9 @@ const PHASES = Object.freeze([
   { id: 'museum', title: 'Museu do Jardim Botânico', stopId: 'museum', stopIndex: 7, sceneKey: SCENE_KEYS.museum, textureKey: ASSET_KEYS.museum, focusX: 0.63 },
   { id: 'greenhouses', title: 'Estufas', stopId: 'greenhouses', stopIndex: 8, sceneKey: SCENE_KEYS.greenhouses, textureKey: ASSET_KEYS.greenhouses, focusX: 0.5 },
   { id: 'carnivorous-greenhouse', title: 'Estufa das Plantas Carnívoras', stopId: 'greenhouses', stopIndex: 8, sceneKey: SCENE_KEYS.carnivorousGreenhouse, textureKey: ASSET_KEYS.carnivorousPlantOpen, focusX: 0.5 },
-  { id: 'herbarium', title: 'Herbário RB', stopId: 'herbarium_rb', stopIndex: 9, sceneKey: SCENE_KEYS.herbarium, textureKey: ASSET_KEYS.herbarium, focusX: 0.62 },
-  { id: 'national-school', title: 'Escola Nacional de Botânica Tropical', stopId: 'national_school', stopIndex: 10, sceneKey: SCENE_KEYS.nationalSchool, textureKey: ASSET_KEYS.creditsBackground, focusX: 0.62 },
+  { id: 'cactus-garden', title: 'Cactário', stopId: 'cactus_garden', stopIndex: 9, sceneKey: SCENE_KEYS.cactusGarden, textureKey: ASSET_KEYS.cactusGarden, focusX: 0.5 },
+  { id: 'herbarium', title: 'Herbário RB', stopId: 'herbarium_rb', stopIndex: 10, sceneKey: SCENE_KEYS.herbarium, textureKey: ASSET_KEYS.herbarium, focusX: 0.62 },
+  { id: 'national-school', title: 'Escola Nacional de Botânica Tropical', stopId: 'national_school', stopIndex: 11, sceneKey: SCENE_KEYS.nationalSchool, textureKey: ASSET_KEYS.creditsBackground, focusX: 0.62 },
 ]);
 
 const PANEL_Y = GAME_HEIGHT - 31;
@@ -74,11 +75,12 @@ export default class PhaseMap {
 
     this.markers = PHASES.map((phase, index) => {
       const point = points[index];
-      const marker = this.scene.add.container(point.x, point.y);
+      const marker = this.scene.add.container(point.x, point.y).setScrollFactor(0);
       const state = this.getMarkerState(phase);
       const icon = this.scene.add.image(0, 0, phase.textureKey);
       const frame = this.scene.add
         .rectangle(0, 0, 40, 40, 0x000000, 0.06)
+        .setScrollFactor(0)
         .setStrokeStyle(state.strokeWidth, state.strokeColor, 0.96)
         .setInteractive({ useHandCursor: true });
 
@@ -103,7 +105,7 @@ export default class PhaseMap {
 
     return PHASES.map((phase, index) => ({
       x: startX + index * MARKER_SPACING,
-      y: PANEL_Y + MARKER_OFFSETS[index],
+      y: PANEL_Y + (MARKER_OFFSETS[index] ?? 0),
     }));
   }
 
@@ -112,7 +114,7 @@ export default class PhaseMap {
       return { strokeColor: 0xffdf78, strokeWidth: 3 };
     }
 
-    if (phase.stopIndex === this.currentStopIndex) {
+    if (!this.activeSceneKey && phase.stopIndex === this.currentStopIndex) {
       return { strokeColor: 0xffdf78, strokeWidth: 3 };
     }
 

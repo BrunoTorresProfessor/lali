@@ -4,9 +4,9 @@ import {
   GAME_WIDTH,
   PHASE_SEED_REWARD,
   SCENE_KEYS,
-} from '../config.js?v=2026-09-09-cactario-trilha-72';
-import PhaseNavigation from '../systems/PhaseNavigation.js?v=2026-09-09-cactario-trilha-72';
-import PhaseMap, { PHASE_MAP_TOP } from '../ui/PhaseMap.js?v=2026-09-09-cactario-trilha-72';
+} from '../config.js?v=2026-09-10-sea-77';
+import PhaseNavigation from '../systems/PhaseNavigation.js?v=2026-09-10-sea-77';
+import PhaseMap, { PHASE_MAP_TOP } from '../ui/PhaseMap.js?v=2026-09-10-sea-77';
 
 const Phaser = window.Phaser;
 

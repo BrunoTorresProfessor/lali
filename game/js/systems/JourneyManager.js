@@ -1,4 +1,4 @@
-import { SCENE_KEYS } from '../config.js?v=2026-09-09-cactario-trilha-72';
+import { SCENE_KEYS } from '../config.js?v=2026-09-10-sea-77';
 
 const Phaser = window.Phaser;
 

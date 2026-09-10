@@ -7,7 +7,7 @@ import {
   ROUTE_CHUNKS,
   SCENE_KEYS,
   withAssetVersion,
-} from '../config.js?v=2026-09-09-cactario-trilha-72';
+} from '../config.js?v=2026-09-10-sea-77';
 
 const Phaser = window.Phaser;
 
@@ -17,6 +17,8 @@ export default class BootScene extends Phaser.Scene {
   }
 
   preload() {
+    this.load.image(ASSET_KEYS.environmentalEducation, ASSET_PATHS.environmentalEducation);
+    this.load.image(ASSET_KEYS.lucasArmBackground, ASSET_PATHS.lucasArmBackground);
     ['cactusGarden', 'cactusOverview', 'cactusGreenhouses', 'cactusGiants', 'cactusSucculents', 'thiago'].forEach((key) => {
       this.load.image(ASSET_KEYS[key], ASSET_PATHS[key]);
     });

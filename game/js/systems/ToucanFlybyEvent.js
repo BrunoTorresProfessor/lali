@@ -1,5 +1,5 @@
-import { GAME_WIDTH, PLAYER_ANIMATION_STATES } from '../config.js?v=2026-09-09-cactario-trilha-72';
-import SpeechBubble from '../ui/SpeechBubble.js?v=2026-09-09-cactario-trilha-72';
+import { GAME_WIDTH, PLAYER_ANIMATION_STATES } from '../config.js?v=2026-09-10-sea-77';
+import SpeechBubble from '../ui/SpeechBubble.js?v=2026-09-10-sea-77';
 
 const DEFAULT_FLIGHT = Object.freeze({
   duration: 4800,

@@ -1,4 +1,4 @@
-import { ASSET_KEYS, JOURNEY_RETURN_OFFSET } from '../config.js?v=2026-09-09-cactario-trilha-72';
+import { ASSET_KEYS, JOURNEY_RETURN_OFFSET } from '../config.js?v=2026-09-10-sea-77';
 
 export default class PhaseNavigation {
   static createJourneyState(scene, phase, seedCount) {

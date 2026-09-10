@@ -3,7 +3,7 @@ const Phaser = window.Phaser;
 export const GAME_WIDTH = 1280;
 export const GAME_HEIGHT = 720;
 export const PLAYER_SPEED = 180;
-export const ASSET_VERSION = '2026-09-09-cactario-trilha-72';
+export const ASSET_VERSION = '2026-09-10-sea-77';
 export const PHASE_SEED_REWARD = 1;
 
 export const withAssetVersion = (path) => `${path}?v=${ASSET_VERSION}`;
@@ -15,6 +15,7 @@ export const SCENE_KEYS = Object.freeze({
   bromeliadHouse: 'BromeliadHouseScene',
   carnivorousGreenhouse: 'CarnivorousGreenhouseScene',
   cactusGarden: 'CactusGardenScene',
+  environmentalEducation: 'EnvironmentalEducationScene',
   chafarizDasMusas: 'ChafarizDasMusasScene',
   credits: 'CreditsScene',
   greenhouses: 'GreenhousesScene',
@@ -40,6 +41,8 @@ export const ASSET_KEYS = Object.freeze({
   cactusGiants: 'cactario-gigantes',
   cactusSucculents: 'cactario-suculentas',
   thiago: 'thiago-cartoon',
+  environmentalEducation: 'servico-educacao-ambiental-lucas',
+  lucasArmBackground: 'lucas-arm-background',
   carnivorousPlantClosed: 'venus-flytrap-closed',
   carnivorousPlantOpen: 'venus-flytrap-open',
   capuchinMonkeysChatter: 'capuchin-monkeys-chatter',
@@ -93,6 +96,8 @@ export const ASSET_PATHS = Object.freeze({
   cactusGiants: withAssetVersion('assets/cartoon/cactario-gigantes.png'),
   cactusSucculents: withAssetVersion('assets/cartoon/cactario-suculentas.png'),
   thiago: withAssetVersion('assets/cartoon/thiago-cartoon.png'),
+  environmentalEducation: withAssetVersion('assets/cartoon/servico-educacao-ambiental-lucas.png'),
+  lucasArmBackground: withAssetVersion('assets/cartoon/lucas-arm-background.png'),
   carnivorousPlantClosed: withAssetVersion('assets/cartoon/venus-flytrap-closed.png'),
   carnivorousPlantOpen: withAssetVersion('assets/cartoon/venus-flytrap-open.png'),
   capuchinMonkeysChatter: withAssetVersion('assets/audio/capuchin-monkeys-chatter.wav'),

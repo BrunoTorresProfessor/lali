@@ -1,4 +1,4 @@
-import { ASSET_KEYS, GAME_HEIGHT, GAME_WIDTH, SCENE_KEYS } from '../config.js?v=2026-09-09-cactario-trilha-72';
+import { ASSET_KEYS, GAME_HEIGHT, GAME_WIDTH, SCENE_KEYS } from '../config.js?v=2026-09-10-sea-77';
 
 const Phaser = window.Phaser;
 
@@ -15,11 +15,12 @@ const PHASES = Object.freeze([
   { id: 'carnivorous-greenhouse', title: 'Estufa das Plantas Carnívoras', stopId: 'greenhouses', stopIndex: 8, sceneKey: SCENE_KEYS.carnivorousGreenhouse, textureKey: ASSET_KEYS.carnivorousPlantOpen, focusX: 0.5 },
   { id: 'cactus-garden', title: 'Cactário', stopId: 'cactus_garden', stopIndex: 9, sceneKey: SCENE_KEYS.cactusGarden, textureKey: ASSET_KEYS.cactusGarden, focusX: 0.5 },
   { id: 'herbarium', title: 'Herbário RB', stopId: 'herbarium_rb', stopIndex: 10, sceneKey: SCENE_KEYS.herbarium, textureKey: ASSET_KEYS.herbarium, focusX: 0.62 },
-  { id: 'national-school', title: 'Escola Nacional de Botânica Tropical', stopId: 'national_school', stopIndex: 11, sceneKey: SCENE_KEYS.nationalSchool, textureKey: ASSET_KEYS.creditsBackground, focusX: 0.62 },
+  { id: 'environmental-education', title: 'Serviço de Educação Ambiental', stopId: 'environmental_education', stopIndex: 11, sceneKey: SCENE_KEYS.environmentalEducation, textureKey: ASSET_KEYS.environmentalEducation, focusX: 0.43 },
+  { id: 'national-school', title: 'Escola Nacional de Botânica Tropical', stopId: 'national_school', stopIndex: 12, sceneKey: SCENE_KEYS.nationalSchool, textureKey: ASSET_KEYS.creditsBackground, focusX: 0.62 },
 ]);
 
 const PANEL_Y = GAME_HEIGHT - 31;
-const PANEL_WIDTH = 720;
+const PANEL_WIDTH = 760;
 const MARKER_SPACING = 52;
 const MARKER_OFFSETS = Object.freeze([0, -5, 3, -4, 4, -3, 5, 0, -4, 4, -3, 1]);
 

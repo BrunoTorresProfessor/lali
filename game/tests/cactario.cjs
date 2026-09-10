@@ -40,7 +40,7 @@ fs.mkdirSync(output, { recursive: true });
     });
     await page.waitForFunction(() => window.irmasLaLiGame.scene.isActive('CactusGardenScene') && window.irmasLaLiGame.scene.getScene('CactusGardenScene').ready);
     const actual = await page.evaluate(async () => {
-      const { CACTUS_DIALOGUE } = await import('/js/scenes/CactusGardenScene.js?v=2026-09-09-thiago-fala-74');
+      const { CACTUS_DIALOGUE } = await import('/js/scenes/CactusGardenScene.js?v=2026-09-10-sea-75');
       return CACTUS_DIALOGUE.map(page => page.text).join(' ');
     });
     assert.equal(actual, narration);
@@ -55,7 +55,7 @@ fs.mkdirSync(output, { recursive: true });
     });
     const first = await getState();
     assert.equal(first.characters, 2);
-    assert.equal(first.markers.length, 13);
+    assert.equal(first.markers.length, 14);
     assert(first.markers.every(point => point.every(Number.isFinite)));
     assert.equal(first.speaking, true);
     assert.equal(first.mouthVisible, true);
@@ -138,13 +138,13 @@ fs.mkdirSync(output, { recursive: true });
     await page.waitForFunction(() => window.irmasLaLiGame.scene.isActive('GameScene'));
     // Re-enter using the map and ensure input listeners are not duplicated.
     await page.waitForTimeout(400);
-    await clickGame(848, 686);
+    await clickGame(822, 686);
     await page.waitForFunction(() => window.irmasLaLiGame.scene.isActive('CactusGardenScene') && window.irmasLaLiGame.scene.getScene('CactusGardenScene').ready);
     await page.keyboard.press('Enter');
     await waitPage(1);
     assert.equal((await getState()).index, 1);
     // Leaving by the phase map must work independently of dialogue controls.
-    await clickGame(900, 690);
+    await clickGame(874, 690);
     await page.waitForFunction(() => window.irmasLaLiGame.scene.isActive('HerbariumScene'));
     const seeds = await page.evaluate(() => window.irmasLaLiGame.scene.getScene('HerbariumScene').journeyState.seedCount);
     assert.equal(seeds, first.seeds + 2, 'Only the completed Cactário and Herbário visits grant rewards');

@@ -431,20 +431,42 @@
       }
     },
     {
-      "id": "route_chunk_017",
+      "id": "environmental_education",
       "type": "stop",
-      "width": 1280,
+      "width": 640,
       "layers": [
         {
           "depth": 0,
           "assetKey": "route-chunk-017",
-          "fit": "coverHeight"
+          "fit": "coverHeight",
+          "sourceRect": { "x": 0, "y": 0, "width": 640, "height": 720 }
+        }
+      ],
+      "scene": "EnvironmentalEducationScene",
+      "title": "Serviço de Educação Ambiental",
+      "entryRatio": 0.75,
+      "resumeOffset": 0,
+      "learning": {
+        "objective": "Relacionar a observação da natureza com atitudes de cuidado no dia a dia.",
+        "npc": "lucas"
+      }
+    },
+    {
+      "id": "route_chunk_017",
+      "type": "stop",
+      "width": 640,
+      "layers": [
+        {
+          "depth": 0,
+          "assetKey": "route-chunk-017",
+          "fit": "coverHeight",
+          "sourceRect": { "x": 640, "y": 0, "width": 640, "height": 720 }
         }
       ],
       "sourceStopId": "national_school",
       "scene": "NationalSchoolScene",
       "title": "Escola Nacional de Botânica Tropical",
-      "entryRatio": 0.328125,
+      "entryRatio": 0.5,
       "resumeOffset": 360,
       "learning": {
         "objective": "Encerrar a jornada celebrando a conservacao da biodiversidade tropical.",
